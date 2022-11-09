@@ -1,5 +1,6 @@
 package com.service.order.controller;
 
+import com.service.order.aop.OrderLock;
 import com.service.order.dto.order.OrderDto;
 import com.service.order.input.order.OrderInput;
 import com.service.order.input.order.OrderUpdateInput;
@@ -28,11 +29,13 @@ public class OrderController {
     }
 
     @PatchMapping
+    @OrderLock
     public ResponseEntity<Long> update(@Valid @RequestBody OrderUpdateInput orderUpdateInput) {
         return ResponseEntity.status(HttpStatus.OK).body(orderService.updateOrder(orderUpdateInput));
     }
 
     @DeleteMapping("/{orderId}")
+    @OrderLock
     public ResponseEntity<Long> delete(@PathVariable long orderId) {
         return ResponseEntity.status(HttpStatus.OK).body(orderService.cancelOrder(orderId));
     }

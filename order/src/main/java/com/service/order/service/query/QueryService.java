@@ -55,12 +55,16 @@ public class QueryService {
 
     @Transactional
     public long updateOrder(OrderUpdateInput orderUpdateInput) {
-        Order order = findOrderById(orderUpdateInput.getId());
-        OrderInfo orderInfo = order.getOrderInfo();
-        orderInfo.setName(orderUpdateInput.getName());
-        orderInfo.setAddress(orderUpdateInput.getAddress());
-        orderInfo.setRequest(orderUpdateInput.getRequest());
-        return order.getId();
+        try {
+            Order order = findOrderById(orderUpdateInput.getId());
+            OrderInfo orderInfo = order.getOrderInfo();
+            orderInfo.setName(orderUpdateInput.getName());
+            orderInfo.setAddress(orderUpdateInput.getAddress());
+            orderInfo.setRequest(orderUpdateInput.getRequest());
+            return order.getId();
+        } catch (RuntimeException e) {
+            throw new OrderServiceException("주문 데이터 수정에 실패하였습니다.");
+        }
     }
 
     @Transactional

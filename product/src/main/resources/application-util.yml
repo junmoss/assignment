@@ -1,0 +1,4 @@
+# Lock Config
+WAIT_TIME: 60 # 60sec
+LEASE_TIME: 120 # 120sec
+LOCK_KEY: KDJFNRTK49483!@#$%FDS

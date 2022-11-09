@@ -1,7 +1,9 @@
 package com.service.order.service.http;
 
 
+import com.service.order.dto.exception.ExceptionDto;
 import com.service.order.error.exception.http.HttpServiceException;
+import com.service.order.util.gson.GsonUtil;
 import com.service.order.util.http.HttpUtil;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpMethod;
@@ -22,7 +24,7 @@ public class HttpService {
             ResponseEntity<String> response = httpUtil.sendRequest(value, url, httpMethod);
 
             if (response.getStatusCode() == HttpStatus.INTERNAL_SERVER_ERROR) {
-                throw new HttpServiceException(response.getBody());
+                throw new HttpServiceException(GsonUtil.parseStrToObj(response.getBody(), ExceptionDto.class).getMessage());
             }
             return response.getBody();
         } catch (RestClientException restClientException) {

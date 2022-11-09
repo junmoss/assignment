@@ -4,6 +4,7 @@ import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.google.gson.JsonParseException;
 import com.service.order.dto.product.ProductDto;
+import com.service.order.error.exception.parsing.ParsingServiceException;
 import lombok.extern.slf4j.Slf4j;
 
 import java.util.Arrays;
@@ -33,8 +34,7 @@ public class GsonUtil {
         try {
             return Arrays.asList(gson.fromJson(jsonListStr, ProductDto[].class));
         } catch (JsonParseException jsonParseException) {
-            log.error(jsonParseException.getMessage());
-            return null;
+            throw new ParsingServiceException("데이터 파싱 처리 작업에 실패하였습니다.");
         }
     }
 }

@@ -1,4 +1,4 @@
-package com.service.order.config.http;
+package com.service.order.config.lock;
 
 import com.service.order.config.yaml.YamlPropertySourceFactory;
 import lombok.Builder;
@@ -13,22 +13,10 @@ import org.springframework.context.annotation.PropertySource;
 @PropertySource(value = "classpath:application-util.yml", factory = YamlPropertySourceFactory.class)
 @Data
 @Builder
-public class HttpConfig {
-    @Value("${PRODUCT_SERVER_IP}")
-    private final String address;
+public class LockConfig {
+    @Value("${WAIT_TIME}")
+    private final int waitTime;
 
-    @Value("${PRODUCT_SERVER_PORT}")
-    private final int port;
-
-    @Value("${READ_TIME_OUT}")
-    private final int readTimeOut;
-
-    @Value("${CONN_TIME_OUT}")
-    private final int connTimeOut;
-
-    @Value("${MAX_CONN_TOTAL}")
-    private final int maxConnTotal;
-
-    @Value("${MAX_CONN_PER_ROUTE}")
-    private final int maxConnPerRoute;
+    @Value("${LEASE_TIME}")
+    private final int leaseTime;
 }
