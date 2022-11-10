@@ -8,6 +8,7 @@ import lombok.*;
 import javax.persistence.*;
 
 @Entity
+@Table(name = "order_product")
 @Data
 @Builder
 @AllArgsConstructor
@@ -15,6 +16,7 @@ import javax.persistence.*;
 public class Product extends BaseTimeEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "id")
     private Long id;
 
     private Long productId;

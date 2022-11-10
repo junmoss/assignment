@@ -10,6 +10,7 @@ import org.springframework.http.HttpMethod;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
+import org.springframework.web.client.HttpServerErrorException;
 import org.springframework.web.client.RestClientException;
 
 import java.util.List;
@@ -22,13 +23,12 @@ public class HttpService {
     public <T> String sendProductRequest(String url, HttpMethod httpMethod, List<T> value) {
         try {
             ResponseEntity<String> response = httpUtil.sendRequest(value, url, httpMethod);
-
-            if (response.getStatusCode() == HttpStatus.INTERNAL_SERVER_ERROR) {
-                throw new HttpServiceException(GsonUtil.parseStrToObj(response.getBody(), ExceptionDto.class).getMessage());
-            }
             return response.getBody();
         } catch (RestClientException restClientException) {
-            throw new HttpServiceException("서버 연결에 실패하였습니다.");
+            if (restClientException instanceof HttpServerErrorException) {
+                throw new HttpServiceException(GsonUtil.parseStrToObj(((HttpServerErrorException) restClientException).getResponseBodyAsString(), ExceptionDto.class).getMessage());
+            }
+            throw restClientException;
         }
     }
 }

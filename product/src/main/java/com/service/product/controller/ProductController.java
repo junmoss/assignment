@@ -63,11 +63,10 @@ public class ProductController {
         return ResponseEntity.status(HttpStatus.OK).body(productService.deleteProductById(productId));
     }
 
-    @GetMapping("/{productId}")
+    @GetMapping("/paging")
     public ResponseEntity<List<ProductDto>> getPagination(
-            @PathVariable long productId,
             @RequestParam(value = "page", required = false, defaultValue = "5") int page,
             @RequestParam(value = "size", required = false, defaultValue = "5") int size) {
-        return ResponseEntity.status(HttpStatus.OK).body(productService.findProductPagination(productId, PageRequest.of(page, size, Sort.by("createdTime"))));
+        return ResponseEntity.status(HttpStatus.OK).body(productService.findProductPagination(PageRequest.of(page, size, Sort.by("createdTime"))));
     }
 }

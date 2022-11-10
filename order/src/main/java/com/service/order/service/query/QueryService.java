@@ -110,7 +110,7 @@ public class QueryService {
     }
 
     @Transactional(readOnly = true)
-    public List<OrderDto> findOrderPaginationById(Long orderId, Pageable pageable) {
-        return orderRepository.findOrderByOrderId(orderId, pageable).getContent().stream().map(OrderDto::from).collect(Collectors.toList());
+    public List<OrderDto> findOrderPaginationBy(Pageable pageable) {
+        return orderRepository.findOrderBy(pageable).getContent().stream().map(OrderDto::from).collect(Collectors.toList());
     }
 }

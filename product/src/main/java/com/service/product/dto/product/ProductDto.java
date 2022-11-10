@@ -9,6 +9,7 @@ import lombok.Data;
 public class ProductDto {
     private final Long productId;
     private final String name;
+    private final String description;
     private final Long price;
     private final int count;
 
@@ -16,6 +17,7 @@ public class ProductDto {
         return ProductDto.builder()
                 .productId(product.getId())
                 .name(product.getName())
+                .description(product.getDescription())
                 .price(product.getPrice())
                 .count(product.getCount())
                 .build();

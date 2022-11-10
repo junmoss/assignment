@@ -68,7 +68,7 @@ public class OrderService {
         return queryService.findAllOrderDto();
     }
 
-    public List<OrderDto> findOrderPagination(long orderId, Pageable pageable) {
-        return queryService.findOrderPaginationById(orderId, pageable);
+    public List<OrderDto> findOrderPagination(Pageable pageable) {
+        return queryService.findOrderPaginationBy(pageable);
     }
 }

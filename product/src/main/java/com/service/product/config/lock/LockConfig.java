@@ -12,14 +12,13 @@ import org.springframework.context.annotation.PropertySource;
 @ConfigurationProperties(prefix = "yaml")
 @PropertySource(value = "classpath:application-util.yml", factory = YamlPropertySourceFactory.class)
 @Data
-@Builder
 public class LockConfig {
     @Value("${WAIT_TIME}")
-    private final int waitTime;
+    private int waitTime;
 
     @Value("${LEASE_TIME}")
-    private final int leaseTime;
+    private int leaseTime;
 
     @Value("LOCK_KEY")
-    private final String lockKey;
+    private String lockKey;
 }

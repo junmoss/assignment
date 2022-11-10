@@ -50,11 +50,10 @@ public class OrderController {
         return ResponseEntity.status(HttpStatus.OK).body(orderService.findAllOrder());
     }
 
-    @GetMapping("/{orderId}")
+    @GetMapping("/paging")
     public ResponseEntity<List<OrderDto>> getPagination(
-            @PathVariable long orderId,
             @RequestParam(value = "page", required = false, defaultValue = "5") int page,
             @RequestParam(value = "size", required = false, defaultValue = "5") int size) {
-        return ResponseEntity.status(HttpStatus.OK).body(orderService.findOrderPagination(orderId, PageRequest.of(page, size, Sort.by("createdTime"))));
+        return ResponseEntity.status(HttpStatus.OK).body(orderService.findOrderPagination(PageRequest.of(page, size, Sort.by("createdTime"))));
     }
 }

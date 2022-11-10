@@ -63,15 +63,15 @@ public class ProductService {
                 Product product = findProductById(orderProductInput.getId());
 
                 if (orderProductInput.getCount() > product.getCount()) {
-                    throw new RuntimeException();
+                    throw new ProductServiceException("상품 주문 진행에 실패하였습니다.");
                 } else {
                     product.setCount(product.getCount() - orderProductInput.getCount());
                 }
                 productRepository.save(product); // 생략 가능하면 생략하도록
-                orderProductDtoList.add(OrderProductDto.from(product));
+                orderProductDtoList.add(OrderProductDto.from(product, orderProductInput));
             }
-        } catch (ProductServiceException e) {
-            throw new ProductServiceException("상품 주문 진행에 실패하였습니다.");
+        } catch (Exception e) {
+            throw e;
         }
         return orderProductDtoList;
     }
@@ -85,7 +85,7 @@ public class ProductService {
                 Product product = findProductById(orderProductInput.getId());
                 product.setCount(product.getCount() + orderProductInput.getCount());
                 productRepository.save(product); // 생략 가능하면 생략하도록
-                orderProductDtoList.add(OrderProductDto.from(product));
+                orderProductDtoList.add(OrderProductDto.from(product, orderProductInput));
             }
         } catch (ProductServiceException e) {
             throw new ProductServiceException("상품 주문 진행에 실패하였습니다.");
@@ -109,7 +109,7 @@ public class ProductService {
     }
 
     @Transactional(readOnly = true)
-    public List<ProductDto> findProductPagination(long productId, Pageable pageable) {
-        return productRepository.findProductByProductId(productId, pageable).getContent().stream().map(ProductDto::from).collect(Collectors.toList());
+    public List<ProductDto> findProductPagination(Pageable pageable) {
+        return productRepository.findProductBy(pageable).getContent().stream().map(ProductDto::from).collect(Collectors.toList());
     }
 }

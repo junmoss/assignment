@@ -12,23 +12,22 @@ import org.springframework.context.annotation.PropertySource;
 @ConfigurationProperties(prefix = "yaml")
 @PropertySource(value = "classpath:application-util.yml", factory = YamlPropertySourceFactory.class)
 @Data
-@Builder
 public class HttpConfig {
     @Value("${PRODUCT_SERVER_IP}")
-    private final String address;
+    private String address;
 
     @Value("${PRODUCT_SERVER_PORT}")
-    private final int port;
+    private int port;
 
     @Value("${READ_TIME_OUT}")
-    private final int readTimeOut;
+    private int readTimeOut;
 
     @Value("${CONN_TIME_OUT}")
-    private final int connTimeOut;
+    private int connTimeOut;
 
     @Value("${MAX_CONN_TOTAL}")
-    private final int maxConnTotal;
+    private int maxConnTotal;
 
     @Value("${MAX_CONN_PER_ROUTE}")
-    private final int maxConnPerRoute;
+    private int maxConnPerRoute;
 }
