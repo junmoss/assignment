@@ -1,8 +1,8 @@
-package com.service.order.entity.order;
+package com.service.order.entity.rdb.order;
 
 
 import com.service.order.entity.common.BaseTimeEntity;
-import com.service.order.entity.product.Product;
+import com.service.order.entity.rdb.product.Product;
 import com.service.order.input.order.OrderInput;
 import lombok.*;
 import org.hibernate.annotations.Fetch;

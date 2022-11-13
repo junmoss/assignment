@@ -1,7 +1,7 @@
 package com.service.order.service.order;
 
 import com.service.order.dto.order.OrderDto;
-import com.service.order.entity.product.Product;
+import com.service.order.entity.rdb.product.Product;
 import com.service.order.error.exception.query.OrderServiceException;
 import com.service.order.error.exception.query.ProductServiceException;
 import com.service.order.input.order.OrderInput;

@@ -1,7 +1,7 @@
 package com.service.order.repository.order;
 
 
-import com.service.order.entity.order.Order;
+import com.service.order.entity.rdb.order.Order;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.repository.JpaRepository;

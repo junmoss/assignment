@@ -1,6 +1,6 @@
 package com.service.order.input.product;
 
-import com.service.order.entity.product.Product;
+import com.service.order.entity.rdb.product.Product;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;

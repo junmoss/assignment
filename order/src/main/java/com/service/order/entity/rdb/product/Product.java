@@ -1,8 +1,8 @@
-package com.service.order.entity.product;
+package com.service.order.entity.rdb.product;
 
 import com.service.order.dto.product.ProductDto;
 import com.service.order.entity.common.BaseTimeEntity;
-import com.service.order.entity.order.Order;
+import com.service.order.entity.rdb.order.Order;
 import lombok.*;
 
 import javax.persistence.*;

@@ -1,4 +1,4 @@
-package com.service.order.entity.order;
+package com.service.order.entity.rdb.order;
 
 import com.service.order.input.order.OrderInput;
 import lombok.AllArgsConstructor;

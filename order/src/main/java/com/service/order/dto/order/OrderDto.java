@@ -2,7 +2,7 @@ package com.service.order.dto.order;
 
 
 import com.service.order.dto.product.ProductDto;
-import com.service.order.entity.order.Order;
+import com.service.order.entity.rdb.order.Order;
 import lombok.Builder;
 import lombok.Data;
 
