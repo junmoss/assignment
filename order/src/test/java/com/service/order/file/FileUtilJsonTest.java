@@ -1,5 +1,6 @@
 package com.service.order.file;
 
+import com.google.gson.Gson;
 import com.service.order.file.entity.Index;
 import com.service.order.file.entity.OrderData;
 import com.service.order.util.gson.GsonUtil;
@@ -7,20 +8,71 @@ import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.data.relational.core.sql.In;
 
 import java.io.*;
 import java.nio.charset.StandardCharsets;
 import java.nio.file.FileSystems;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
-import java.util.stream.Stream;
 
 @SpringBootTest
 public class FileUtilJsonTest {
     // json, index/data 2개 파일을 통한 관리
     private String getDataFilePath() {
         return FileSystems.getDefault().getPath("data").toAbsolutePath().toString();
+    }
+
+    private void updateIndexDataText(long orderId, Index repIndex) throws Exception {
+        String[] parsed = readAllText("index.txt").split("\n");
+        StringBuilder stringBuilder = new StringBuilder();
+        int prevOffset = 0;
+        int prevLength = 0;
+
+        for (String parse : parsed) {
+            Index index = GsonUtil.parseStrToObj(parse, Index.class);
+
+            if (index.getOrderId() == orderId) {
+                repIndex.setOffset(prevOffset + prevLength);
+                prevOffset = repIndex.getOffset();
+                prevLength = repIndex.getLength();
+                String repIndexStr = GsonUtil.parseObjToStr(repIndex) + "\n";
+                stringBuilder.append(repIndexStr);
+            } else {
+                index.setOffset(prevOffset + prevLength);
+                prevOffset = index.getOffset();
+                prevLength = index.getLength();
+                stringBuilder.append(GsonUtil.parseObjToStr(index) + "\n");
+            }
+        }
+        writeText(stringBuilder.toString().getBytes(StandardCharsets.UTF_8), "index.txt");
+    }
+
+    private void updateOrderDataText(int offset, int length, String targetStr) throws Exception {
+        try (DataInputStream dataInputStream = new DataInputStream(new FileInputStream(getDataFilePath() + "/dev/" + "order.txt"))) {
+            byte[] prevBytes = new byte[offset];
+            StringBuilder stringBuilder = new StringBuilder();
+
+            if (offset > 0) {
+                dataInputStream.read(prevBytes);
+                stringBuilder.append(new String(prevBytes));
+            }
+
+            if (length > 0) {
+                dataInputStream.skip(length);
+            }
+
+            stringBuilder.append(targetStr);
+
+            if (dataInputStream.available() > 0) {
+                byte[] postBytes = new byte[dataInputStream.available()];
+                dataInputStream.read(postBytes);
+                stringBuilder.append(new String(postBytes));
+            }
+            writeText(stringBuilder.toString().getBytes(StandardCharsets.UTF_8), "order.txt");
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 
     private void writeText(byte[] bytes, String textFile) throws Exception {
@@ -127,6 +179,105 @@ public class FileUtilJsonTest {
         return indexList;
     }
 
+    private void updateIndexOrderData(OrderData updateOrderData) throws Exception {
+        Index prevIndex = readIndexById(updateOrderData.getOrderId());
+        OrderData prevOrderData = readOrderDataByIndex(prevIndex);
+        Index repIndex = Index.builder()
+                .orderId(prevOrderData.getOrderId())
+                .offset(prevIndex.getOffset())
+                .length(GsonUtil.parseObjToStr(updateOrderData).getBytes(StandardCharsets.UTF_8).length)
+                .build();
+
+        updateIndexDataText(repIndex.getOrderId(), repIndex);
+        updateOrderDataText(repIndex.getOffset(), prevIndex.getLength(), GsonUtil.parseObjToStr(updateOrderData));
+    }
+
+    private Index deleteIndexData(long orderId) throws Exception {
+        String[] parsed = readAllText("index.txt").split("\n");
+        StringBuilder stringBuilder = new StringBuilder();
+        Index result = null;
+
+        for (int i = 0; i < parsed.length; i++) {
+            Index index = GsonUtil.parseStrToObj(parsed[i], Index.class);
+
+            if (orderId == index.getOrderId()) {
+                Index prevIndex = null;
+                Index postIndex = null;
+
+                if (i - 1 >= 0) {
+                    prevIndex = GsonUtil.parseStrToObj(parsed[i - 1], Index.class);
+                }
+
+                if (i + 1 < parsed.length) {
+                    postIndex = GsonUtil.parseStrToObj(parsed[i + 1], Index.class);
+                }
+
+                if (prevIndex == null && postIndex != null) {
+                    postIndex.setOffset(0);
+                    parsed[i + 1] = GsonUtil.parseObjToStr(postIndex);
+                } else if (prevIndex != null && postIndex != null) {
+                    postIndex.setOffset(prevIndex.getOffset() + prevIndex.getLength());
+                    parsed[i + 1] = GsonUtil.parseObjToStr(postIndex);
+                }
+
+                for (int j = i + 2; j < parsed.length; j++) {
+                    if (j - 1 >= 0) {
+                        prevIndex = GsonUtil.parseStrToObj(parsed[j - 1], Index.class);
+                        index = GsonUtil.parseStrToObj(parsed[j], Index.class);
+                        index.setOffset(prevIndex.getOffset() + prevIndex.getLength());
+                        parsed[j] = GsonUtil.parseObjToStr(index);
+                    }
+                }
+                break;
+            }
+        }
+
+        for (String parse : parsed) {
+            Index index = GsonUtil.parseStrToObj(parse, Index.class);
+
+            if (index.getOrderId() == orderId) {
+                result = index;
+                continue;
+            }
+            stringBuilder.append(parse + "\n");
+        }
+        writeText(stringBuilder.toString().getBytes(StandardCharsets.UTF_8), "index.txt");
+        return result;
+    }
+
+    private void deleteOrderData(Index index) {
+        try (DataInputStream dataInputStream = new DataInputStream(new FileInputStream(getDataFilePath() + "/dev/" + "order.txt"))) {
+            byte[] prevBytes = new byte[index.getOffset()];
+
+            if (prevBytes.length > 0) {
+                dataInputStream.read(prevBytes);
+            }
+
+            dataInputStream.skip(index.getLength());
+
+            byte[] postBytes = new byte[dataInputStream.available()];
+
+            if (postBytes.length > 0) {
+                dataInputStream.read(postBytes);
+            }
+
+            StringBuilder stringBuilder = new StringBuilder(
+                    (prevBytes.length > 0 ? new String(prevBytes) : "") + (postBytes.length > 0 ? new String(postBytes) : "")
+            );
+
+            if (!stringBuilder.toString().isEmpty()) {
+                writeText(stringBuilder.toString().getBytes(StandardCharsets.UTF_8), "order.txt");
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    private void deleteIndexOrderData(long orderId) throws Exception {
+        Index deleteIndex = deleteIndexData(orderId);
+        deleteOrderData(deleteIndex);
+    }
+
     @BeforeEach
     public void fileResetTest() throws Exception {
         writeText("".getBytes(StandardCharsets.UTF_8), "index.txt");
@@ -226,9 +377,73 @@ public class FileUtilJsonTest {
     }
 
     @Test
-    public void IndexAndOrderUpdateTest() {
+    public void IndexAndOrderUpdateTest() throws Exception {
         // order, index 수정 및 삭제
+        IndexAndOrderReadAndWriteTest();
 
+        updateIndexOrderData(
+                OrderData.builder().orderId(1).name("JmKanmo")
+                        .address("충북 음성군 대소면").request("밥 좀 주세요..").build());
+
+        updateIndexOrderData(
+                OrderData.builder().orderId(2).name("나플라")
+                        .address("쇼미더머니11").request("내 랩은 지리지").build());
+
+        updateIndexOrderData(
+                OrderData.builder().orderId(3).name("삼백")
+                        .address("취준생 신세한탄방").request("여기가 내집이요.").build());
+
+        updateIndexOrderData(
+                OrderData.builder().orderId(1).name("재갈량")
+                        .address("재갈시대").request("그런거필요읎다.").build());
+
+        // read 테스트
+        OrderData orderData = readOrderDataByIndex(readIndexById(1));
+        Assertions.assertNotNull(orderData);
+
+        orderData = readOrderDataByIndex(readIndexById(2));
+        Assertions.assertNotNull(orderData);
+
+        orderData = readOrderDataByIndex(readIndexById(3));
+        Assertions.assertNotNull(orderData);
+
+        orderData = readOrderDataByIndex(readIndexById(4));
+        Assertions.assertNotNull(orderData);
+
+        orderData = readOrderDataByIndex(readIndexById(5));
+        Assertions.assertNotNull(orderData);
+
+        // pagination test
+        List<Index> indexList = readIndexPagingById(0, 5);
+
+        for (Index index : indexList) {
+            OrderData order = readOrderDataByIndex(index);
+            Assertions.assertNotNull(order);
+        }
+    }
+
+    @Test
+    public void indexAndOrderDeleteTest() throws Exception {
+        // order, index 삭제
+        IndexAndOrderReadAndWriteTest();
+        deleteIndexOrderData(1);
+        deleteIndexOrderData(3);
+        deleteIndexOrderData(4);
+
+        OrderData orderData = readOrderDataByIndex(readIndexById(2));
+        Assertions.assertNotNull(orderData);
+
+        orderData = readOrderDataByIndex(readIndexById(5));
+        Assertions.assertNotNull(orderData);
+
+        updateIndexOrderData(OrderData.builder().orderId(5).name("철구").address("인천").request("괴성 좀 그만질러라").productKey(3).build());
+
+        List<Index> indexList = readIndexPagingById(0, 5);
+
+        for (Index index : indexList) {
+            OrderData order = readOrderDataByIndex(index);
+            Assertions.assertNotNull(order);
+        }
     }
 
     @Test

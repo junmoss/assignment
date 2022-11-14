@@ -1,4 +1,4 @@
-package com.service.order.file.entity;
+package com.service.order.entity.file;
 
 import lombok.Builder;
 import lombok.Data;
@@ -10,3 +10,4 @@ public class Index {
     private int offset;
     private int length;
 }
+
