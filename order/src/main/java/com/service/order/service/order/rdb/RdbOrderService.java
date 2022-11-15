@@ -1,4 +1,4 @@
-package com.service.order.service.order;
+package com.service.order.service.order.rdb;
 
 import com.service.order.dto.order.OrderDto;
 import com.service.order.entity.rdb.product.Product;
@@ -22,7 +22,7 @@ import java.util.stream.Collectors;
 @Service
 @Slf4j
 @RequiredArgsConstructor
-public class OrderService {
+public class RdbOrderService {
     private final QueryService queryService;
     private final HttpService httpService;
 

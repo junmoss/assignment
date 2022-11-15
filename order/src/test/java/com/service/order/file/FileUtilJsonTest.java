@@ -33,15 +33,16 @@ public class FileUtilJsonTest {
             Index index = GsonUtil.parseStrToObj(parse, Index.class);
 
             if (index.getOrderId() == orderId) {
-                repIndex.setOffset(prevOffset + prevLength);
                 prevOffset = repIndex.getOffset();
                 prevLength = repIndex.getLength();
                 String repIndexStr = GsonUtil.parseObjToStr(repIndex) + "\n";
                 stringBuilder.append(repIndexStr);
             } else {
-                index.setOffset(prevOffset + prevLength);
-                prevOffset = index.getOffset();
-                prevLength = index.getLength();
+                if (prevOffset != 0 || prevLength != 0) {
+                    index.setOffset(prevOffset + prevLength);
+                    prevOffset = index.getOffset();
+                    prevLength = index.getLength();
+                }
                 stringBuilder.append(GsonUtil.parseObjToStr(index) + "\n");
             }
         }

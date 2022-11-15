@@ -1,5 +1,6 @@
 package com.service.order.dto.product;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.service.order.entity.rdb.product.Product;
 import lombok.Builder;
 import lombok.Data;
@@ -7,6 +8,7 @@ import lombok.Data;
 @Data
 @Builder
 public class ProductDto {
+    @JsonIgnore
     private final Long id;
     private final Long productId;
     private final String name;

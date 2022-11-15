@@ -5,8 +5,8 @@ import lombok.Data;
 
 @Data
 @Builder
-public class Index {
-    private int orderId;
+public class IndexFile {
+    private long orderId;
     private int offset;
     private int length;
 }
