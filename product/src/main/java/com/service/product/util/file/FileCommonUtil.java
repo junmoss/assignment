@@ -1,10 +1,9 @@
-package com.service.order.util.file;
+package com.service.product.util.file;
 
-import com.service.order.entity.file.IndexFile;
-import com.service.order.entity.file.OrderFile;
-import com.service.order.error.exception.file.FileServiceException;
-import com.service.order.util.gson.GsonUtil;
-
+import com.service.product.entity.file.IndexFile;
+import com.service.product.entity.file.ProductFile;
+import com.service.product.error.exception.file.FileServiceException;
+import com.service.product.util.gson.GsonUtil;
 import java.io.DataInputStream;
 import java.io.DataOutputStream;
 import java.io.FileInputStream;
@@ -15,12 +14,12 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class FileCommonUtil {
-    protected void deleteOrderData(IndexFile index) throws FileServiceException {
-        if (index == null) {
+    protected void deleteProductData(IndexFile index) throws FileServiceException {
+        if(index == null) {
             return;
         }
 
-        try (DataInputStream dataInputStream = new DataInputStream(new FileInputStream(getDataFilePath() + "/dev/" + "order.txt"))) {
+        try (DataInputStream dataInputStream = new DataInputStream(new FileInputStream(getDataFilePath() + "/dev/" + "product.txt"))) {
             byte[] prevBytes = new byte[index.getOffset()];
 
             if (prevBytes.length > 0) {
@@ -40,14 +39,14 @@ public class FileCommonUtil {
             );
 
             if (!stringBuilder.toString().isEmpty()) {
-                writeText(stringBuilder.toString().getBytes(StandardCharsets.UTF_8), "order.txt");
+                writeText(stringBuilder.toString().getBytes(StandardCharsets.UTF_8), "product.txt");
             }
         } catch (Exception e) {
-            throw new FileServiceException("주문데이터 삭제에 실패하였습니다.");
+            throw new FileServiceException("상품 데이터 삭제에 실패하였습니다.");
         }
     }
 
-    protected IndexFile deleteIndexData(long orderId) throws Exception {
+    protected IndexFile deleteIndexData(long productId) throws Exception {
         String[] parsed = readAllText("index.txt");
         StringBuilder stringBuilder = new StringBuilder();
         IndexFile result = null;
@@ -55,7 +54,7 @@ public class FileCommonUtil {
         for (int i = 0; i < parsed.length; i++) {
             IndexFile index = GsonUtil.parseStrToObj(parsed[i], IndexFile.class);
 
-            if (orderId == index.getOrderId()) {
+            if (productId == index.getProductId()) {
                 IndexFile prevIndex = null;
                 IndexFile postIndex = null;
 
@@ -90,7 +89,7 @@ public class FileCommonUtil {
         for (String parse : parsed) {
             IndexFile index = GsonUtil.parseStrToObj(parse, IndexFile.class);
 
-            if (index.getOrderId() == orderId) {
+            if (index.getProductId() == productId) {
                 result = index;
                 continue;
             }
@@ -100,7 +99,7 @@ public class FileCommonUtil {
         return result;
     }
 
-    protected void updateIndexDataText(long orderId, IndexFile repIndex) throws Exception {
+    protected void updateIndexDataText(long productId, IndexFile repIndex) throws Exception {
         String[] parsed = readAllText("index.txt");
         StringBuilder stringBuilder = new StringBuilder();
         int prevOffset = 0;
@@ -109,7 +108,7 @@ public class FileCommonUtil {
         for (String parse : parsed) {
             IndexFile index = GsonUtil.parseStrToObj(parse, IndexFile.class);
 
-            if (index.getOrderId() == orderId) {
+            if (index.getProductId() == productId) {
                 prevOffset = repIndex.getOffset();
                 prevLength = repIndex.getLength();
                 String repIndexStr = GsonUtil.parseObjToStr(repIndex) + "\n";
@@ -126,8 +125,8 @@ public class FileCommonUtil {
         writeText(stringBuilder.toString().getBytes(StandardCharsets.UTF_8), "index.txt");
     }
 
-    protected void updateOrderDataText(int offset, int length, String targetStr) throws FileServiceException {
-        try (DataInputStream dataInputStream = new DataInputStream(new FileInputStream(getDataFilePath() + "/dev/" + "order.txt"))) {
+    protected void updateProductDataText(int offset, int length, String targetStr) throws FileServiceException {
+        try (DataInputStream dataInputStream = new DataInputStream(new FileInputStream(getDataFilePath() + "/dev/" + "product.txt"))) {
             byte[] prevBytes = new byte[offset];
             StringBuilder stringBuilder = new StringBuilder();
 
@@ -147,9 +146,9 @@ public class FileCommonUtil {
                 dataInputStream.read(postBytes);
                 stringBuilder.append(new String(postBytes));
             }
-            writeText(stringBuilder.toString().getBytes(StandardCharsets.UTF_8), "order.txt");
+            writeText(stringBuilder.toString().getBytes(StandardCharsets.UTF_8), "product.txt");
         } catch (Exception e) {
-            throw new FileServiceException("주문데이터 수정 작업에 실패하였습니다.");
+            throw new FileServiceException("상품 데이터 수정 작업에 실패하였습니다.");
         }
     }
 
@@ -166,30 +165,30 @@ public class FileCommonUtil {
         return indexList;
     }
 
-    protected OrderFile readOrderDataByIndex(IndexFile index) throws Exception {
-        try (DataInputStream dataInputStream = new DataInputStream(new FileInputStream(getDataFilePath() + "/dev/" + "order.txt"))) {
+    protected ProductFile readProductDataByIndex(IndexFile index) throws Exception {
+        try (DataInputStream dataInputStream = new DataInputStream(new FileInputStream(getDataFilePath() + "/dev/" + "product.txt"))) {
             dataInputStream.skip(index.getOffset());
             byte[] bytes = new byte[index.getLength()];
             dataInputStream.read(bytes);
-            OrderFile orderData = GsonUtil.parseStrToObj(new String(bytes), OrderFile.class);
-            if (orderData.getOrderId() == index.getOrderId()) {
-                return orderData;
+            ProductFile productData = GsonUtil.parseStrToObj(new String(bytes), ProductFile.class);
+            if (productData.getProductId() == index.getProductId()) {
+                return productData;
             } else {
-                throw new FileServiceException("주문 정보가 존재하지 않습니다.");
+                throw new FileServiceException("상품 정보가 존재하지 않습니다.");
             }
         } catch (FileServiceException e) {
             throw e;
         }
     }
 
-    protected IndexFile readIndexDataById(long orderId) throws FileServiceException {
+    protected IndexFile readIndexDataById(long productId) throws FileServiceException {
         for (String parse : readAllText("index.txt")) {
             IndexFile index = GsonUtil.parseStrToObj(parse, IndexFile.class);
-            if (index.getOrderId() == orderId) {
+            if (index.getProductId() == productId) {
                 return index;
             }
         }
-        throw new FileServiceException("주문관련 인덱스 정보가 존재하지 않습니다.");
+        throw new FileServiceException("상품 관련 인덱스 정보가 존재하지 않습니다.");
     }
 
     protected String[] readAllText(String textFile) throws FileServiceException {
@@ -205,17 +204,17 @@ public class FileCommonUtil {
         }
     }
 
-    protected int writeOrderText(String orderJsonStr) throws FileServiceException {
+    protected int writeProductText(String productJsonStr) throws FileServiceException {
         int result = 0;
 
-        try (DataInputStream dataInputStream = new DataInputStream(new FileInputStream(getDataFilePath() + "/dev/" + "order.txt"))) {
+        try (DataInputStream dataInputStream = new DataInputStream(new FileInputStream(getDataFilePath() + "/dev/" + "product.txt"))) {
             result = dataInputStream.available();
             byte[] bytes = new byte[result];
             dataInputStream.read(bytes);
-            String str = bytes.length > 0 ? (new String(bytes) + orderJsonStr) : orderJsonStr;
-            writeText(str.getBytes(StandardCharsets.UTF_8), "order.txt");
+            String str = bytes.length > 0 ? (new String(bytes) + productJsonStr) : productJsonStr;
+            writeText(str.getBytes(StandardCharsets.UTF_8), "product.txt");
         } catch (Exception e) {
-            throw new FileServiceException("주문 데이터 파일 저장 중에 실패하였습니다.");
+            throw new FileServiceException("상품 데이터 파일 저장 중에 실패하였습니다.");
         }
         return result;
     }
@@ -227,7 +226,7 @@ public class FileCommonUtil {
             String str = bytes.length > 0 ? (new String(bytes) + indexJsonStr) : indexJsonStr;
             writeText(str.getBytes(StandardCharsets.UTF_8), "index.txt");
         } catch (Exception e) {
-            throw new FileServiceException("주문 데이터 파일 저장 중에 실패하였습니다.");
+            throw new FileServiceException("상품 데이터 파일 저장 중에 실패하였습니다.");
         }
     }
 
@@ -239,13 +238,13 @@ public class FileCommonUtil {
         }
     }
 
-    protected long getNextOrderId() throws FileServiceException {
+    protected long getNextProductId() throws FileServiceException {
         String[] parse = readAllText("index.txt");
 
         if (parse.length <= 0)
             return 1L;
         else
-            return GsonUtil.parseStrToObj(parse[parse.length - 1], IndexFile.class).getOrderId() + 1;
+            return GsonUtil.parseStrToObj(parse[parse.length - 1], ProductFile.class).getProductId() + 1;
     }
 
     protected String getDataFilePath() {

@@ -1,4 +1,4 @@
-package com.service.product.service;
+package com.service.product.service.lock;
 
 import com.service.product.config.lock.LockConfig;
 import com.service.product.error.exception.lock.LockServiceException;

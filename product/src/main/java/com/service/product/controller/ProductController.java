@@ -5,7 +5,8 @@ import com.service.product.dto.product.OrderProductDto;
 import com.service.product.dto.product.ProductDto;
 import com.service.product.input.OrderProductInput;
 import com.service.product.input.ProductInput;
-import com.service.product.service.ProductService;
+import com.service.product.service.product.file.FileProductService;
+import com.service.product.service.product.rdb.RdbProductService;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.data.domain.PageRequest;
@@ -22,51 +23,56 @@ import java.util.List;
 @RequestMapping("/product")
 @Slf4j
 public class ProductController {
-    private final ProductService productService;
+    private final FileProductService fileProductService;
 
     @PostMapping
     public ResponseEntity<Long> create(@Valid @RequestBody ProductInput productInput) {
-        return ResponseEntity.status(HttpStatus.OK).body(productService.saveProduct(productInput));
+        return ResponseEntity.status(HttpStatus.OK).body(fileProductService.saveProduct(productInput));
     }
 
     @PatchMapping
     @ProductOrderLock
     public ResponseEntity<Long> update(@Valid @RequestBody ProductInput productInput) {
-        return ResponseEntity.status(HttpStatus.OK).body(productService.updateProduct(productInput));
+        return ResponseEntity.status(HttpStatus.OK).body(fileProductService.updateProduct(productInput));
     }
 
     @PatchMapping("/order")
     @ProductOrderLock
-    public ResponseEntity<List<OrderProductDto>> orderProduct(@RequestBody List<OrderProductInput> orderProductInputs) {
-        return ResponseEntity.status(HttpStatus.OK).body(productService.orderProduct(orderProductInputs));
+    public ResponseEntity<List<Long>> orderProduct(@RequestBody List<OrderProductInput> orderProductInputs) throws Exception {
+        return ResponseEntity.status(HttpStatus.OK).body(fileProductService.orderProduct(orderProductInputs));
     }
 
     @PatchMapping("/cancel-order")
     @ProductOrderLock
-    public ResponseEntity<List<OrderProductDto>> cancelOrderProduct(@RequestBody List<OrderProductInput> orderProductInputs) {
-        return ResponseEntity.status(HttpStatus.OK).body(productService.cancelOrderProduct(orderProductInputs));
+    public ResponseEntity<List<Long>> cancelOrderProduct(@RequestBody List<OrderProductInput> orderProductInputs) throws Exception {
+        return ResponseEntity.status(HttpStatus.OK).body(fileProductService.cancelOrderProduct(orderProductInputs));
     }
 
     @GetMapping("/{productId}")
-    public ResponseEntity<ProductDto> get(@PathVariable long productId) {
-        return ResponseEntity.status(HttpStatus.OK).body(productService.findProductDtoById(productId));
+    public ResponseEntity<ProductDto> get(@PathVariable long productId) throws Exception {
+        return ResponseEntity.status(HttpStatus.OK).body(fileProductService.findProductDtoById(productId));
     }
 
     @GetMapping("/all")
-    public ResponseEntity<List<ProductDto>> getAll() {
-        return ResponseEntity.status(HttpStatus.OK).body(productService.findAllProductDto());
+    public ResponseEntity<List<ProductDto>> getAll() throws Exception {
+        return ResponseEntity.status(HttpStatus.OK).body(fileProductService.findTotalProductDto());
     }
 
     @DeleteMapping("/{productId}")
     @ProductOrderLock
     public ResponseEntity<Long> deleteProduct(@PathVariable long productId) {
-        return ResponseEntity.status(HttpStatus.OK).body(productService.deleteProductById(productId));
+        return ResponseEntity.status(HttpStatus.OK).body(fileProductService.deleteProduct(productId));
     }
 
     @GetMapping("/paging")
     public ResponseEntity<List<ProductDto>> getPagination(
             @RequestParam(value = "page", required = false, defaultValue = "5") int page,
-            @RequestParam(value = "size", required = false, defaultValue = "5") int size) {
-        return ResponseEntity.status(HttpStatus.OK).body(productService.findProductPagination(PageRequest.of(page, size, Sort.by("createdTime"))));
+            @RequestParam(value = "size", required = false, defaultValue = "5") int size) throws Exception {
+        return ResponseEntity.status(HttpStatus.OK).body(fileProductService.findPagingProductDto(page, size));
+    }
+
+    @GetMapping("/list")
+    public ResponseEntity<List<ProductDto>> getPagination(@RequestBody List<OrderProductInput> productInputs) throws Exception {
+        return ResponseEntity.status(HttpStatus.OK).body(fileProductService.findPagingProductDto());
     }
 }

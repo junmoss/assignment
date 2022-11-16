@@ -4,6 +4,7 @@ package com.service.order.dto.order;
 import com.service.order.dto.product.ProductDto;
 import com.service.order.entity.file.OrderFile;
 import com.service.order.entity.rdb.order.Order;
+import com.service.order.util.Util;
 import lombok.Builder;
 import lombok.Data;
 
@@ -18,6 +19,8 @@ public class OrderDto {
     private final String address;
     private final String request;
     private final List<ProductDto> products;
+    private final String createdTime;
+    private final String updatedTime;
 
     public static OrderDto from(Order order) {
         return OrderDto.builder()
@@ -26,6 +29,8 @@ public class OrderDto {
                 .address(order.getOrderInfo().getAddress())
                 .request(order.getOrderInfo().getRequest())
                 .products(order.getProductList().stream().map(ProductDto::from).collect(Collectors.toList()))
+                .createdTime(Util.formatLocalDateTimeToStr(order.getCreatedTime()))
+                .updatedTime(Util.formatLocalDateTimeToStr(order.getUpdatedTime()))
                 .build();
     }
 
@@ -36,6 +41,8 @@ public class OrderDto {
                 .address(orderFile.getAddress())
                 .request(orderFile.getRequest())
                 .products(products)
+                .createdTime(orderFile.getCreatedTime())
+                .updatedTime(orderFile.getUpdatedTime())
                 .build();
     }
 }

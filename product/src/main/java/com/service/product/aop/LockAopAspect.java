@@ -1,6 +1,6 @@
 package com.service.product.aop;
 
-import com.service.product.service.LockService;
+import com.service.product.service.lock.LockService;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.aspectj.lang.ProceedingJoinPoint;

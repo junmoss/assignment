@@ -9,6 +9,7 @@ import com.service.order.util.Util;
 import com.service.order.util.gson.GsonUtil;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Component;
+
 import java.nio.charset.StandardCharsets;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
@@ -21,6 +22,21 @@ public class FileUtil extends FileCommonUtil {
         OrderFile orderFile = OrderFile.from(orderInput);
         orderFile.setOrderId(getNextOrderId());
 
+        String orderJsonStr = GsonUtil.parseObjToStr(orderFile);
+        long orderId = orderFile.getOrderId();
+        int offset = writeOrderText(orderJsonStr);
+        int length = orderJsonStr.getBytes(StandardCharsets.UTF_8).length;
+
+        writeIndexText(GsonUtil.parseObjToStr(
+                IndexFile.builder()
+                        .orderId(orderId)
+                        .offset(offset)
+                        .length(length)
+                        .build()) + "\n");
+        return orderId;
+    }
+
+    public long saveOrderData(OrderFile orderFile) throws FileServiceException {
         String orderJsonStr = GsonUtil.parseObjToStr(orderFile);
         long orderId = orderFile.getOrderId();
         int offset = writeOrderText(orderJsonStr);

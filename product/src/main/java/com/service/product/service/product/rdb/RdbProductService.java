@@ -1,8 +1,8 @@
-package com.service.product.service;
+package com.service.product.service.product.rdb;
 
 import com.service.product.dto.product.OrderProductDto;
 import com.service.product.dto.product.ProductDto;
-import com.service.product.entity.product.Product;
+import com.service.product.entity.rdb.product.Product;
 import com.service.product.error.exception.query.ProductServiceException;
 import com.service.product.input.OrderProductInput;
 import com.service.product.input.ProductInput;
@@ -18,7 +18,7 @@ import java.util.stream.Collectors;
 
 @Service
 @RequiredArgsConstructor
-public class ProductService {
+public class RdbProductService {
     private final ProductRepository productRepository;
 
     @Transactional
@@ -61,6 +61,10 @@ public class ProductService {
         try {
             for (OrderProductInput orderProductInput : orderProductInputs) {
                 Product product = findProductById(orderProductInput.getId());
+
+                if (product.getCount() <= 0) {
+                    continue;
+                }
 
                 if (orderProductInput.getCount() > product.getCount()) {
                     throw new ProductServiceException("상품 주문 진행에 실패하였습니다.");

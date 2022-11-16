@@ -26,12 +26,14 @@ public class FileOrderService {
 
     public long createOrder(OrderInput orderInput) throws Exception {
         httpService.sendProductRequest("http://%s:%d/product/order", HttpMethod.PATCH, orderInput.getProductInputs());
+        long orderId = 0;
 
         try {
-            return fileService.saveOrder(orderInput);
+            orderId = fileService.saveOrder(orderInput);
+            return orderId;
         } catch (Exception e) {
             if (e instanceof FileServiceException) {
-                // file 주문 취소/삭제 메소드 추가 (롤백)
+                fileService.deleteOrder(orderId);
                 httpService.sendProductRequest("http://%s:%d/product/cancel-order", HttpMethod.PATCH, orderInput.getProductInputs());
             }
             throw e;
@@ -46,7 +48,7 @@ public class FileOrderService {
             fileService.deleteOrder(orderId);
         } catch (Exception e) {
             if (e instanceof FileServiceException) {
-                // 주문 추가 메소드 호출 (롤백)
+                fileService.saveOrder(orderFile);
                 httpService.sendProductRequest("http://%s:%d/product/order", HttpMethod.PATCH, orderFile.getProductFiles());
             }
             throw e;

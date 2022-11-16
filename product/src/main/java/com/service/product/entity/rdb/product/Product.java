@@ -1,4 +1,4 @@
-package com.service.product.entity.product;
+package com.service.product.entity.rdb.product;
 
 import com.service.product.entity.common.BaseTimeEntity;
 import com.service.product.input.ProductInput;

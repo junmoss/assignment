@@ -20,6 +20,10 @@ public class FileService {
         return fileUtil.saveOrderData(orderInput);
     }
 
+    public long saveOrder(OrderFile orderFile) throws FileServiceException {
+        return fileUtil.saveOrderData(orderFile);
+    }
+
     public long updateOrder(OrderUpdateInput orderUpdateInput) throws Exception {
         return fileUtil.updateOrder(orderUpdateInput);
     }

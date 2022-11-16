@@ -1,6 +1,6 @@
 package com.service.product.repository;
 
-import com.service.product.entity.product.Product;
+import com.service.product.entity.rdb.product.Product;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.repository.JpaRepository;
