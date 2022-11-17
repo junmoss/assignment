@@ -185,3 +185,529 @@
 [2022-11-17 05:30:37,250] INFO  [27988 - SpringApplicationShutdownHook - {org.springframework.orm.jpa.AbstractEntityManagerFactoryBean => destroy, %PARSER_ERROR[l]}] org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
 [2022-11-17 05:30:37,253] INFO  [27988 - SpringApplicationShutdownHook - {com.zaxxer.hikari.HikariDataSource => close, %PARSER_ERROR[l]}] com.zaxxer.hikari.HikariDataSource : HikariPool-1 - Shutdown initiated...
 [2022-11-17 05:30:37,269] INFO  [27988 - SpringApplicationShutdownHook - {com.zaxxer.hikari.HikariDataSource => close, %PARSER_ERROR[l]}] com.zaxxer.hikari.HikariDataSource : HikariPool-1 - Shutdown completed.
+[2022-11-17 05:30:46,701] INFO  [58716 - main - {org.springframework.boot.StartupInfoLogger => logStarting, %PARSER_ERROR[l]}] com.service.order.OrderApplication : Starting OrderApplication using Java 11.0.13 on DESKTOP-GK5I9BP with PID 58716 (D:\study\practice\assignment\order\target\classes started by apdh1 in D:\study\practice\assignment\order)
+[2022-11-17 05:30:46,704] INFO  [58716 - main - {org.springframework.boot.SpringApplication => logStartupProfileInfo, %PARSER_ERROR[l]}] com.service.order.OrderApplication : No active profile set, falling back to 1 default profile: "default"
+[2022-11-17 05:30:47,394] INFO  [58716 - main - {org.springframework.data.repository.config.RepositoryConfigurationDelegate => multipleStoresDetected, %PARSER_ERROR[l]}] org.springframework.data.repository.config.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode
+[2022-11-17 05:30:47,395] INFO  [58716 - main - {org.springframework.data.repository.config.RepositoryConfigurationDelegate => registerRepositoriesIn, %PARSER_ERROR[l]}] org.springframework.data.repository.config.RepositoryConfigurationDelegate : Bootstrapping Spring Data JDBC repositories in DEFAULT mode.
+[2022-11-17 05:30:47,429] INFO  [58716 - main - {org.springframework.data.repository.config.RepositoryConfigurationExtensionSupport => isStrictRepositoryCandidate, %PARSER_ERROR[l]}] org.springframework.data.repository.config.RepositoryConfigurationExtensionSupport : Spring Data JDBC - Could not safely identify store assignment for repository candidate interface com.service.order.repository.order.OrderRepository; If you want this repository to be a JDBC repository, consider annotating your entities with one of these annotations: org.springframework.data.relational.core.mapping.Table.
+[2022-11-17 05:30:47,432] INFO  [58716 - main - {org.springframework.data.repository.config.RepositoryConfigurationExtensionSupport => isStrictRepositoryCandidate, %PARSER_ERROR[l]}] org.springframework.data.repository.config.RepositoryConfigurationExtensionSupport : Spring Data JDBC - Could not safely identify store assignment for repository candidate interface com.service.order.repository.product.ProductRepository; If you want this repository to be a JDBC repository, consider annotating your entities with one of these annotations: org.springframework.data.relational.core.mapping.Table.
+[2022-11-17 05:30:47,433] INFO  [58716 - main - {org.springframework.data.repository.config.RepositoryConfigurationDelegate => registerRepositoriesIn, %PARSER_ERROR[l]}] org.springframework.data.repository.config.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 33 ms. Found 0 JDBC repository interfaces.
+[2022-11-17 05:30:47,441] INFO  [58716 - main - {org.springframework.data.repository.config.RepositoryConfigurationDelegate => multipleStoresDetected, %PARSER_ERROR[l]}] org.springframework.data.repository.config.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode
+[2022-11-17 05:30:47,441] INFO  [58716 - main - {org.springframework.data.repository.config.RepositoryConfigurationDelegate => registerRepositoriesIn, %PARSER_ERROR[l]}] org.springframework.data.repository.config.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+[2022-11-17 05:30:47,504] INFO  [58716 - main - {org.springframework.data.repository.config.RepositoryConfigurationDelegate => registerRepositoriesIn, %PARSER_ERROR[l]}] org.springframework.data.repository.config.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 59 ms. Found 2 JPA repository interfaces.
+[2022-11-17 05:30:47,516] INFO  [58716 - main - {org.springframework.data.repository.config.RepositoryConfigurationDelegate => multipleStoresDetected, %PARSER_ERROR[l]}] org.springframework.data.repository.config.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode
+[2022-11-17 05:30:47,517] INFO  [58716 - main - {org.springframework.data.repository.config.RepositoryConfigurationDelegate => registerRepositoriesIn, %PARSER_ERROR[l]}] org.springframework.data.repository.config.RepositoryConfigurationDelegate : Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+[2022-11-17 05:30:47,530] INFO  [58716 - main - {org.springframework.data.repository.config.RepositoryConfigurationExtensionSupport => isStrictRepositoryCandidate, %PARSER_ERROR[l]}] org.springframework.data.repository.config.RepositoryConfigurationExtensionSupport : Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.service.order.repository.order.OrderRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository
+[2022-11-17 05:30:47,532] INFO  [58716 - main - {org.springframework.data.repository.config.RepositoryConfigurationExtensionSupport => isStrictRepositoryCandidate, %PARSER_ERROR[l]}] org.springframework.data.repository.config.RepositoryConfigurationExtensionSupport : Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.service.order.repository.product.ProductRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository
+[2022-11-17 05:30:47,532] INFO  [58716 - main - {org.springframework.data.repository.config.RepositoryConfigurationDelegate => registerRepositoriesIn, %PARSER_ERROR[l]}] org.springframework.data.repository.config.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 7 ms. Found 0 Redis repository interfaces.
+[2022-11-17 05:30:47,794] INFO  [58716 - main - {org.springframework.context.support.PostProcessorRegistrationDelegate$BeanPostProcessorChecker => postProcessAfterInitialization, %PARSER_ERROR[l]}] org.springframework.context.support.PostProcessorRegistrationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.ws.config.annotation.DelegatingWsConfiguration' of type [org.springframework.ws.config.annotation.DelegatingWsConfiguration$$EnhancerBySpringCGLIB$$47405383] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+[2022-11-17 05:30:47,841] INFO  [58716 - main - {org.springframework.ws.soap.addressing.server.AbstractAddressingEndpointMapping => afterPropertiesSet, %PARSER_ERROR[l]}] org.springframework.ws.soap.addressing.server.AnnotationActionEndpointMapping : Supporting [WS-Addressing August 2004, WS-Addressing 1.0]
+[2022-11-17 05:30:48,115] INFO  [58716 - main - {org.springframework.boot.web.embedded.tomcat.TomcatWebServer => initialize, %PARSER_ERROR[l]}] org.springframework.boot.web.embedded.tomcat.TomcatWebServer : Tomcat initialized with port(s): 9000 (http)
+[2022-11-17 05:30:48,123] INFO  [58716 - main - {org.apache.juli.logging.DirectJDKLog => log, %PARSER_ERROR[l]}] org.apache.catalina.core.StandardService : Starting service [Tomcat]
+[2022-11-17 05:30:48,123] INFO  [58716 - main - {org.apache.juli.logging.DirectJDKLog => log, %PARSER_ERROR[l]}] org.apache.catalina.core.StandardEngine : Starting Servlet engine: [Apache Tomcat/9.0.68]
+[2022-11-17 05:30:48,260] INFO  [58716 - main - {org.apache.juli.logging.DirectJDKLog => log, %PARSER_ERROR[l]}] org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/] : Initializing Spring embedded WebApplicationContext
+[2022-11-17 05:30:48,261] INFO  [58716 - main - {org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext => prepareWebApplicationContext, %PARSER_ERROR[l]}] org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1513 ms
+[2022-11-17 05:30:48,391] INFO  [58716 - main - {org.hibernate.jpa.internal.util.LogHelper => logPersistenceUnitInformation, %PARSER_ERROR[l]}] org.hibernate.jpa.internal.util.LogHelper : HHH000204: Processing PersistenceUnitInfo [name: default]
+[2022-11-17 05:30:48,423] INFO  [58716 - main - {org.hibernate.Version => logVersion, %PARSER_ERROR[l]}] org.hibernate.Version : HHH000412: Hibernate ORM core version 5.6.12.Final
+[2022-11-17 05:30:48,537] INFO  [58716 - main - {org.hibernate.annotations.common.reflection.java.JavaReflectionManager => <clinit>, %PARSER_ERROR[l]}] org.hibernate.annotations.common.Version : HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+[2022-11-17 05:30:48,604] INFO  [58716 - main - {com.zaxxer.hikari.HikariDataSource => getConnection, %PARSER_ERROR[l]}] com.zaxxer.hikari.HikariDataSource : HikariPool-1 - Starting...
+[2022-11-17 05:30:48,661] INFO  [58716 - main - {com.zaxxer.hikari.HikariDataSource => getConnection, %PARSER_ERROR[l]}] com.zaxxer.hikari.HikariDataSource : HikariPool-1 - Start completed.
+[2022-11-17 05:30:48,671] INFO  [58716 - main - {org.hibernate.dialect.Dialect => <init>, %PARSER_ERROR[l]}] org.hibernate.dialect.Dialect : HHH000400: Using dialect: org.hibernate.dialect.MariaDB103Dialect
+[2022-11-17 05:30:49,213] INFO  [58716 - main - {org.hibernate.engine.transaction.jta.platform.internal.JtaPlatformInitiator => initiateService, %PARSER_ERROR[l]}] org.hibernate.engine.transaction.jta.platform.internal.JtaPlatformInitiator : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+[2022-11-17 05:30:49,232] INFO  [58716 - main - {org.springframework.orm.jpa.AbstractEntityManagerFactoryBean => buildNativeEntityManagerFactory, %PARSER_ERROR[l]}] org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+[2022-11-17 05:30:49,368] INFO  [58716 - main - {org.redisson.Version => logVersion, %PARSER_ERROR[l]}] org.redisson.Version : Redisson 3.17.7
+[2022-11-17 05:30:54,103] INFO  [58716 - redisson-netty-2-6 - {org.redisson.connection.pool.ConnectionPool => lambda$createConnection$1, %PARSER_ERROR[l]}] org.redisson.connection.pool.MasterPubSubConnectionPool : 1 connections initialized for localhost/127.0.0.1:6379
+[2022-11-17 05:30:54,158] INFO  [58716 - redisson-netty-2-20 - {org.redisson.connection.pool.ConnectionPool => lambda$createConnection$1, %PARSER_ERROR[l]}] org.redisson.connection.pool.MasterConnectionPool : 24 connections initialized for localhost/127.0.0.1:6379
+[2022-11-17 05:30:54,792] WARN  [58716 - main - {org.springframework.boot.autoconfigure.thymeleaf.ThymeleafAutoConfiguration$DefaultTemplateResolverConfiguration => checkTemplateLocationExists, %PARSER_ERROR[l]}] org.springframework.boot.autoconfigure.thymeleaf.ThymeleafAutoConfiguration$DefaultTemplateResolverConfiguration : Cannot find template location: classpath:/templates/ (please add some templates, check your Thymeleaf configuration, or set spring.thymeleaf.check-template-location=false)
+[2022-11-17 05:30:55,209] INFO  [58716 - main - {org.springframework.boot.web.embedded.tomcat.TomcatWebServer => start, %PARSER_ERROR[l]}] org.springframework.boot.web.embedded.tomcat.TomcatWebServer : Tomcat started on port(s): 9000 (http) with context path ''
+[2022-11-17 05:30:55,222] INFO  [58716 - main - {org.springframework.boot.StartupInfoLogger => logStarted, %PARSER_ERROR[l]}] com.service.order.OrderApplication : Started OrderApplication in 8.967 seconds (JVM running for 11.986)
+[2022-11-17 05:35:44,218] INFO  [58716 - http-nio-9000-exec-1 - {org.apache.juli.logging.DirectJDKLog => log, %PARSER_ERROR[l]}] org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/] : Initializing Spring DispatcherServlet 'dispatcherServlet'
+[2022-11-17 05:35:44,219] INFO  [58716 - http-nio-9000-exec-1 - {org.springframework.web.servlet.FrameworkServlet => initServletBean, %PARSER_ERROR[l]}] org.springframework.web.servlet.DispatcherServlet : Initializing Servlet 'dispatcherServlet'
+[2022-11-17 05:35:44,220] INFO  [58716 - http-nio-9000-exec-1 - {org.springframework.web.servlet.FrameworkServlet => initServletBean, %PARSER_ERROR[l]}] org.springframework.web.servlet.DispatcherServlet : Completed initialization in 1 ms
+[2022-11-17 05:36:06,144] ERROR [58716 - http-nio-9000-exec-3 - {com.service.order.error.advice.ExceptionAdvice => exceptionHandler, %PARSER_ERROR[l]}] com.service.order.error.advice.ExceptionAdvice : [order-exceptionHandler] Exception occurred 
+[2022-11-17 07:00:52,106] WARN  [58716 - HikariPool-1 housekeeper - {com.zaxxer.hikari.pool.HikariPool$HouseKeeper => run, %PARSER_ERROR[l]}] com.zaxxer.hikari.pool.HikariPool : HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=1h10m33s366ms928µs700ns).
+[2022-11-17 07:01:13,679] ERROR [58716 - redisson-timer-4-1 - {org.redisson.client.handler.PingConnectionHandler => lambda$sendPing$1, %PARSER_ERROR[l]}] org.redisson.client.handler.PingConnectionHandler : Unable to send PING command over channel: [id: 0x873225b5, L:/127.0.0.1:50393 - R:localhost/127.0.0.1:6379]
+org.redisson.client.RedisTimeoutException: Command execution timeout for command: (PING), params: [], Redis client: [addr=redis://localhost:6379]
+	at org.redisson.client.RedisConnection.lambda$async$0(RedisConnection.java:244)
+	at io.netty.util.HashedWheelTimer$HashedWheelTimeout.run(HashedWheelTimer.java:715)
+	at io.netty.util.concurrent.ImmediateExecutor.execute(ImmediateExecutor.java:34)
+	at io.netty.util.HashedWheelTimer$HashedWheelTimeout.expire(HashedWheelTimer.java:703)
+	at io.netty.util.HashedWheelTimer$HashedWheelBucket.expireTimeouts(HashedWheelTimer.java:790)
+	at io.netty.util.HashedWheelTimer$Worker.run(HashedWheelTimer.java:503)
+	at io.netty.util.concurrent.FastThreadLocalRunnable.run(FastThreadLocalRunnable.java:30)
+	at java.base/java.lang.Thread.run(Thread.java:834)
+[2022-11-17 07:01:13,681] ERROR [58716 - redisson-timer-4-1 - {org.redisson.client.handler.PingConnectionHandler => lambda$sendPing$1, %PARSER_ERROR[l]}] org.redisson.client.handler.PingConnectionHandler : Unable to send PING command over channel: [id: 0x8acabea8, L:/127.0.0.1:50392 - R:localhost/127.0.0.1:6379]
+org.redisson.client.RedisTimeoutException: Command execution timeout for command: (PING), params: [], Redis client: [addr=redis://localhost:6379]
+	at org.redisson.client.RedisConnection.lambda$async$0(RedisConnection.java:244)
+	at io.netty.util.HashedWheelTimer$HashedWheelTimeout.run(HashedWheelTimer.java:715)
+	at io.netty.util.concurrent.ImmediateExecutor.execute(ImmediateExecutor.java:34)
+	at io.netty.util.HashedWheelTimer$HashedWheelTimeout.expire(HashedWheelTimer.java:703)
+	at io.netty.util.HashedWheelTimer$HashedWheelBucket.expireTimeouts(HashedWheelTimer.java:790)
+	at io.netty.util.HashedWheelTimer$Worker.run(HashedWheelTimer.java:503)
+	at io.netty.util.concurrent.FastThreadLocalRunnable.run(FastThreadLocalRunnable.java:30)
+	at java.base/java.lang.Thread.run(Thread.java:834)
+[2022-11-17 07:01:13,682] ERROR [58716 - redisson-timer-4-1 - {org.redisson.client.handler.PingConnectionHandler => lambda$sendPing$1, %PARSER_ERROR[l]}] org.redisson.client.handler.PingConnectionHandler : Unable to send PING command over channel: [id: 0xad0f94c3, L:/127.0.0.1:50391 - R:localhost/127.0.0.1:6379]
+org.redisson.client.RedisTimeoutException: Command execution timeout for command: (PING), params: [], Redis client: [addr=redis://localhost:6379]
+	at org.redisson.client.RedisConnection.lambda$async$0(RedisConnection.java:244)
+	at io.netty.util.HashedWheelTimer$HashedWheelTimeout.run(HashedWheelTimer.java:715)
+	at io.netty.util.concurrent.ImmediateExecutor.execute(ImmediateExecutor.java:34)
+	at io.netty.util.HashedWheelTimer$HashedWheelTimeout.expire(HashedWheelTimer.java:703)
+	at io.netty.util.HashedWheelTimer$HashedWheelBucket.expireTimeouts(HashedWheelTimer.java:790)
+	at io.netty.util.HashedWheelTimer$Worker.run(HashedWheelTimer.java:503)
+	at io.netty.util.concurrent.FastThreadLocalRunnable.run(FastThreadLocalRunnable.java:30)
+	at java.base/java.lang.Thread.run(Thread.java:834)
+[2022-11-17 07:01:13,683] ERROR [58716 - redisson-timer-4-1 - {org.redisson.client.handler.PingConnectionHandler => lambda$sendPing$1, %PARSER_ERROR[l]}] org.redisson.client.handler.PingConnectionHandler : Unable to send PING command over channel: [id: 0x177d2426, L:/127.0.0.1:50394 - R:localhost/127.0.0.1:6379]
+org.redisson.client.RedisTimeoutException: Command execution timeout for command: (PING), params: [], Redis client: [addr=redis://localhost:6379]
+	at org.redisson.client.RedisConnection.lambda$async$0(RedisConnection.java:244)
+	at io.netty.util.HashedWheelTimer$HashedWheelTimeout.run(HashedWheelTimer.java:715)
+	at io.netty.util.concurrent.ImmediateExecutor.execute(ImmediateExecutor.java:34)
+	at io.netty.util.HashedWheelTimer$HashedWheelTimeout.expire(HashedWheelTimer.java:703)
+	at io.netty.util.HashedWheelTimer$HashedWheelBucket.expireTimeouts(HashedWheelTimer.java:790)
+	at io.netty.util.HashedWheelTimer$Worker.run(HashedWheelTimer.java:503)
+	at io.netty.util.concurrent.FastThreadLocalRunnable.run(FastThreadLocalRunnable.java:30)
+	at java.base/java.lang.Thread.run(Thread.java:834)
+[2022-11-17 07:01:13,684] ERROR [58716 - redisson-timer-4-1 - {org.redisson.client.handler.PingConnectionHandler => lambda$sendPing$1, %PARSER_ERROR[l]}] org.redisson.client.handler.PingConnectionHandler : Unable to send PING command over channel: [id: 0xf05393df, L:/127.0.0.1:50395 - R:localhost/127.0.0.1:6379]
+org.redisson.client.RedisTimeoutException: Command execution timeout for command: (PING), params: [], Redis client: [addr=redis://localhost:6379]
+	at org.redisson.client.RedisConnection.lambda$async$0(RedisConnection.java:244)
+	at io.netty.util.HashedWheelTimer$HashedWheelTimeout.run(HashedWheelTimer.java:715)
+	at io.netty.util.concurrent.ImmediateExecutor.execute(ImmediateExecutor.java:34)
+	at io.netty.util.HashedWheelTimer$HashedWheelTimeout.expire(HashedWheelTimer.java:703)
+	at io.netty.util.HashedWheelTimer$HashedWheelBucket.expireTimeouts(HashedWheelTimer.java:790)
+	at io.netty.util.HashedWheelTimer$Worker.run(HashedWheelTimer.java:503)
+	at io.netty.util.concurrent.FastThreadLocalRunnable.run(FastThreadLocalRunnable.java:30)
+	at java.base/java.lang.Thread.run(Thread.java:834)
+[2022-11-17 07:01:13,685] ERROR [58716 - redisson-timer-4-1 - {org.redisson.client.handler.PingConnectionHandler => lambda$sendPing$1, %PARSER_ERROR[l]}] org.redisson.client.handler.PingConnectionHandler : Unable to send PING command over channel: [id: 0x7408beba, L:/127.0.0.1:50396 - R:localhost/127.0.0.1:6379]
+org.redisson.client.RedisTimeoutException: Command execution timeout for command: (PING), params: [], Redis client: [addr=redis://localhost:6379]
+	at org.redisson.client.RedisConnection.lambda$async$0(RedisConnection.java:244)
+	at io.netty.util.HashedWheelTimer$HashedWheelTimeout.run(HashedWheelTimer.java:715)
+	at io.netty.util.concurrent.ImmediateExecutor.execute(ImmediateExecutor.java:34)
+	at io.netty.util.HashedWheelTimer$HashedWheelTimeout.expire(HashedWheelTimer.java:703)
+	at io.netty.util.HashedWheelTimer$HashedWheelBucket.expireTimeouts(HashedWheelTimer.java:790)
+	at io.netty.util.HashedWheelTimer$Worker.run(HashedWheelTimer.java:503)
+	at io.netty.util.concurrent.FastThreadLocalRunnable.run(FastThreadLocalRunnable.java:30)
+	at java.base/java.lang.Thread.run(Thread.java:834)
+[2022-11-17 07:01:13,686] ERROR [58716 - redisson-timer-4-1 - {org.redisson.client.handler.PingConnectionHandler => lambda$sendPing$1, %PARSER_ERROR[l]}] org.redisson.client.handler.PingConnectionHandler : Unable to send PING command over channel: [id: 0xef2df9fe, L:/127.0.0.1:50397 - R:localhost/127.0.0.1:6379]
+org.redisson.client.RedisTimeoutException: Command execution timeout for command: (PING), params: [], Redis client: [addr=redis://localhost:6379]
+	at org.redisson.client.RedisConnection.lambda$async$0(RedisConnection.java:244)
+	at io.netty.util.HashedWheelTimer$HashedWheelTimeout.run(HashedWheelTimer.java:715)
+	at io.netty.util.concurrent.ImmediateExecutor.execute(ImmediateExecutor.java:34)
+	at io.netty.util.HashedWheelTimer$HashedWheelTimeout.expire(HashedWheelTimer.java:703)
+	at io.netty.util.HashedWheelTimer$HashedWheelBucket.expireTimeouts(HashedWheelTimer.java:790)
+	at io.netty.util.HashedWheelTimer$Worker.run(HashedWheelTimer.java:503)
+	at io.netty.util.concurrent.FastThreadLocalRunnable.run(FastThreadLocalRunnable.java:30)
+	at java.base/java.lang.Thread.run(Thread.java:834)
+[2022-11-17 07:01:13,687] ERROR [58716 - redisson-timer-4-1 - {org.redisson.client.handler.PingConnectionHandler => lambda$sendPing$1, %PARSER_ERROR[l]}] org.redisson.client.handler.PingConnectionHandler : Unable to send PING command over channel: [id: 0x1138265b, L:/127.0.0.1:50399 - R:localhost/127.0.0.1:6379]
+org.redisson.client.RedisTimeoutException: Command execution timeout for command: (PING), params: [], Redis client: [addr=redis://localhost:6379]
+	at org.redisson.client.RedisConnection.lambda$async$0(RedisConnection.java:244)
+	at io.netty.util.HashedWheelTimer$HashedWheelTimeout.run(HashedWheelTimer.java:715)
+	at io.netty.util.concurrent.ImmediateExecutor.execute(ImmediateExecutor.java:34)
+	at io.netty.util.HashedWheelTimer$HashedWheelTimeout.expire(HashedWheelTimer.java:703)
+	at io.netty.util.HashedWheelTimer$HashedWheelBucket.expireTimeouts(HashedWheelTimer.java:790)
+	at io.netty.util.HashedWheelTimer$Worker.run(HashedWheelTimer.java:503)
+	at io.netty.util.concurrent.FastThreadLocalRunnable.run(FastThreadLocalRunnable.java:30)
+	at java.base/java.lang.Thread.run(Thread.java:834)
+[2022-11-17 07:01:13,688] ERROR [58716 - redisson-timer-4-1 - {org.redisson.client.handler.PingConnectionHandler => lambda$sendPing$1, %PARSER_ERROR[l]}] org.redisson.client.handler.PingConnectionHandler : Unable to send PING command over channel: [id: 0x04ea4245, L:/127.0.0.1:50398 - R:localhost/127.0.0.1:6379]
+org.redisson.client.RedisTimeoutException: Command execution timeout for command: (PING), params: [], Redis client: [addr=redis://localhost:6379]
+	at org.redisson.client.RedisConnection.lambda$async$0(RedisConnection.java:244)
+	at io.netty.util.HashedWheelTimer$HashedWheelTimeout.run(HashedWheelTimer.java:715)
+	at io.netty.util.concurrent.ImmediateExecutor.execute(ImmediateExecutor.java:34)
+	at io.netty.util.HashedWheelTimer$HashedWheelTimeout.expire(HashedWheelTimer.java:703)
+	at io.netty.util.HashedWheelTimer$HashedWheelBucket.expireTimeouts(HashedWheelTimer.java:790)
+	at io.netty.util.HashedWheelTimer$Worker.run(HashedWheelTimer.java:503)
+	at io.netty.util.concurrent.FastThreadLocalRunnable.run(FastThreadLocalRunnable.java:30)
+	at java.base/java.lang.Thread.run(Thread.java:834)
+[2022-11-17 07:01:13,689] ERROR [58716 - redisson-timer-4-1 - {org.redisson.client.handler.PingConnectionHandler => lambda$sendPing$1, %PARSER_ERROR[l]}] org.redisson.client.handler.PingConnectionHandler : Unable to send PING command over channel: [id: 0xf81fb2bc, L:/127.0.0.1:50400 - R:localhost/127.0.0.1:6379]
+org.redisson.client.RedisTimeoutException: Command execution timeout for command: (PING), params: [], Redis client: [addr=redis://localhost:6379]
+	at org.redisson.client.RedisConnection.lambda$async$0(RedisConnection.java:244)
+	at io.netty.util.HashedWheelTimer$HashedWheelTimeout.run(HashedWheelTimer.java:715)
+	at io.netty.util.concurrent.ImmediateExecutor.execute(ImmediateExecutor.java:34)
+	at io.netty.util.HashedWheelTimer$HashedWheelTimeout.expire(HashedWheelTimer.java:703)
+	at io.netty.util.HashedWheelTimer$HashedWheelBucket.expireTimeouts(HashedWheelTimer.java:790)
+	at io.netty.util.HashedWheelTimer$Worker.run(HashedWheelTimer.java:503)
+	at io.netty.util.concurrent.FastThreadLocalRunnable.run(FastThreadLocalRunnable.java:30)
+	at java.base/java.lang.Thread.run(Thread.java:834)
+[2022-11-17 07:01:13,689] ERROR [58716 - redisson-timer-4-1 - {org.redisson.client.handler.PingConnectionHandler => lambda$sendPing$1, %PARSER_ERROR[l]}] org.redisson.client.handler.PingConnectionHandler : Unable to send PING command over channel: [id: 0x21616818, L:/127.0.0.1:50401 - R:localhost/127.0.0.1:6379]
+org.redisson.client.RedisTimeoutException: Command execution timeout for command: (PING), params: [], Redis client: [addr=redis://localhost:6379]
+	at org.redisson.client.RedisConnection.lambda$async$0(RedisConnection.java:244)
+	at io.netty.util.HashedWheelTimer$HashedWheelTimeout.run(HashedWheelTimer.java:715)
+	at io.netty.util.concurrent.ImmediateExecutor.execute(ImmediateExecutor.java:34)
+	at io.netty.util.HashedWheelTimer$HashedWheelTimeout.expire(HashedWheelTimer.java:703)
+	at io.netty.util.HashedWheelTimer$HashedWheelBucket.expireTimeouts(HashedWheelTimer.java:790)
+	at io.netty.util.HashedWheelTimer$Worker.run(HashedWheelTimer.java:503)
+	at io.netty.util.concurrent.FastThreadLocalRunnable.run(FastThreadLocalRunnable.java:30)
+	at java.base/java.lang.Thread.run(Thread.java:834)
+[2022-11-17 07:01:13,691] ERROR [58716 - redisson-timer-4-1 - {org.redisson.client.handler.PingConnectionHandler => lambda$sendPing$1, %PARSER_ERROR[l]}] org.redisson.client.handler.PingConnectionHandler : Unable to send PING command over channel: [id: 0xc869deaf, L:/127.0.0.1:50403 - R:localhost/127.0.0.1:6379]
+org.redisson.client.RedisTimeoutException: Command execution timeout for command: (PING), params: [], Redis client: [addr=redis://localhost:6379]
+	at org.redisson.client.RedisConnection.lambda$async$0(RedisConnection.java:244)
+	at io.netty.util.HashedWheelTimer$HashedWheelTimeout.run(HashedWheelTimer.java:715)
+	at io.netty.util.concurrent.ImmediateExecutor.execute(ImmediateExecutor.java:34)
+	at io.netty.util.HashedWheelTimer$HashedWheelTimeout.expire(HashedWheelTimer.java:703)
+	at io.netty.util.HashedWheelTimer$HashedWheelBucket.expireTimeouts(HashedWheelTimer.java:790)
+	at io.netty.util.HashedWheelTimer$Worker.run(HashedWheelTimer.java:503)
+	at io.netty.util.concurrent.FastThreadLocalRunnable.run(FastThreadLocalRunnable.java:30)
+	at java.base/java.lang.Thread.run(Thread.java:834)
+[2022-11-17 07:01:13,691] ERROR [58716 - redisson-timer-4-1 - {org.redisson.client.handler.PingConnectionHandler => lambda$sendPing$1, %PARSER_ERROR[l]}] org.redisson.client.handler.PingConnectionHandler : Unable to send PING command over channel: [id: 0x1a093794, L:/127.0.0.1:50402 - R:localhost/127.0.0.1:6379]
+org.redisson.client.RedisTimeoutException: Command execution timeout for command: (PING), params: [], Redis client: [addr=redis://localhost:6379]
+	at org.redisson.client.RedisConnection.lambda$async$0(RedisConnection.java:244)
+	at io.netty.util.HashedWheelTimer$HashedWheelTimeout.run(HashedWheelTimer.java:715)
+	at io.netty.util.concurrent.ImmediateExecutor.execute(ImmediateExecutor.java:34)
+	at io.netty.util.HashedWheelTimer$HashedWheelTimeout.expire(HashedWheelTimer.java:703)
+	at io.netty.util.HashedWheelTimer$HashedWheelBucket.expireTimeouts(HashedWheelTimer.java:790)
+	at io.netty.util.HashedWheelTimer$Worker.run(HashedWheelTimer.java:503)
+	at io.netty.util.concurrent.FastThreadLocalRunnable.run(FastThreadLocalRunnable.java:30)
+	at java.base/java.lang.Thread.run(Thread.java:834)
+[2022-11-17 07:01:13,692] ERROR [58716 - redisson-timer-4-1 - {org.redisson.client.handler.PingConnectionHandler => lambda$sendPing$1, %PARSER_ERROR[l]}] org.redisson.client.handler.PingConnectionHandler : Unable to send PING command over channel: [id: 0x680c21cc, L:/127.0.0.1:50404 - R:localhost/127.0.0.1:6379]
+org.redisson.client.RedisTimeoutException: Command execution timeout for command: (PING), params: [], Redis client: [addr=redis://localhost:6379]
+	at org.redisson.client.RedisConnection.lambda$async$0(RedisConnection.java:244)
+	at io.netty.util.HashedWheelTimer$HashedWheelTimeout.run(HashedWheelTimer.java:715)
+	at io.netty.util.concurrent.ImmediateExecutor.execute(ImmediateExecutor.java:34)
+	at io.netty.util.HashedWheelTimer$HashedWheelTimeout.expire(HashedWheelTimer.java:703)
+	at io.netty.util.HashedWheelTimer$HashedWheelBucket.expireTimeouts(HashedWheelTimer.java:790)
+	at io.netty.util.HashedWheelTimer$Worker.run(HashedWheelTimer.java:503)
+	at io.netty.util.concurrent.FastThreadLocalRunnable.run(FastThreadLocalRunnable.java:30)
+	at java.base/java.lang.Thread.run(Thread.java:834)
+[2022-11-17 07:01:13,693] ERROR [58716 - redisson-timer-4-1 - {org.redisson.client.handler.PingConnectionHandler => lambda$sendPing$1, %PARSER_ERROR[l]}] org.redisson.client.handler.PingConnectionHandler : Unable to send PING command over channel: [id: 0x3a5ad701, L:/127.0.0.1:50405 - R:localhost/127.0.0.1:6379]
+org.redisson.client.RedisTimeoutException: Command execution timeout for command: (PING), params: [], Redis client: [addr=redis://localhost:6379]
+	at org.redisson.client.RedisConnection.lambda$async$0(RedisConnection.java:244)
+	at io.netty.util.HashedWheelTimer$HashedWheelTimeout.run(HashedWheelTimer.java:715)
+	at io.netty.util.concurrent.ImmediateExecutor.execute(ImmediateExecutor.java:34)
+	at io.netty.util.HashedWheelTimer$HashedWheelTimeout.expire(HashedWheelTimer.java:703)
+	at io.netty.util.HashedWheelTimer$HashedWheelBucket.expireTimeouts(HashedWheelTimer.java:790)
+	at io.netty.util.HashedWheelTimer$Worker.run(HashedWheelTimer.java:503)
+	at io.netty.util.concurrent.FastThreadLocalRunnable.run(FastThreadLocalRunnable.java:30)
+	at java.base/java.lang.Thread.run(Thread.java:834)
+[2022-11-17 07:01:13,695] ERROR [58716 - redisson-timer-4-1 - {org.redisson.client.handler.PingConnectionHandler => lambda$sendPing$1, %PARSER_ERROR[l]}] org.redisson.client.handler.PingConnectionHandler : Unable to send PING command over channel: [id: 0x98bb6147, L:/127.0.0.1:50406 - R:localhost/127.0.0.1:6379]
+org.redisson.client.RedisTimeoutException: Command execution timeout for command: (PING), params: [], Redis client: [addr=redis://localhost:6379]
+	at org.redisson.client.RedisConnection.lambda$async$0(RedisConnection.java:244)
+	at io.netty.util.HashedWheelTimer$HashedWheelTimeout.run(HashedWheelTimer.java:715)
+	at io.netty.util.concurrent.ImmediateExecutor.execute(ImmediateExecutor.java:34)
+	at io.netty.util.HashedWheelTimer$HashedWheelTimeout.expire(HashedWheelTimer.java:703)
+	at io.netty.util.HashedWheelTimer$HashedWheelBucket.expireTimeouts(HashedWheelTimer.java:790)
+	at io.netty.util.HashedWheelTimer$Worker.run(HashedWheelTimer.java:503)
+	at io.netty.util.concurrent.FastThreadLocalRunnable.run(FastThreadLocalRunnable.java:30)
+	at java.base/java.lang.Thread.run(Thread.java:834)
+[2022-11-17 07:01:13,695] ERROR [58716 - redisson-timer-4-1 - {org.redisson.client.handler.PingConnectionHandler => lambda$sendPing$1, %PARSER_ERROR[l]}] org.redisson.client.handler.PingConnectionHandler : Unable to send PING command over channel: [id: 0x5df13f6f, L:/127.0.0.1:50407 - R:localhost/127.0.0.1:6379]
+org.redisson.client.RedisTimeoutException: Command execution timeout for command: (PING), params: [], Redis client: [addr=redis://localhost:6379]
+	at org.redisson.client.RedisConnection.lambda$async$0(RedisConnection.java:244)
+	at io.netty.util.HashedWheelTimer$HashedWheelTimeout.run(HashedWheelTimer.java:715)
+	at io.netty.util.concurrent.ImmediateExecutor.execute(ImmediateExecutor.java:34)
+	at io.netty.util.HashedWheelTimer$HashedWheelTimeout.expire(HashedWheelTimer.java:703)
+	at io.netty.util.HashedWheelTimer$HashedWheelBucket.expireTimeouts(HashedWheelTimer.java:790)
+	at io.netty.util.HashedWheelTimer$Worker.run(HashedWheelTimer.java:503)
+	at io.netty.util.concurrent.FastThreadLocalRunnable.run(FastThreadLocalRunnable.java:30)
+	at java.base/java.lang.Thread.run(Thread.java:834)
+[2022-11-17 07:01:13,696] ERROR [58716 - redisson-timer-4-1 - {org.redisson.client.handler.PingConnectionHandler => lambda$sendPing$1, %PARSER_ERROR[l]}] org.redisson.client.handler.PingConnectionHandler : Unable to send PING command over channel: [id: 0xd4e5f93c, L:/127.0.0.1:50408 - R:localhost/127.0.0.1:6379]
+org.redisson.client.RedisTimeoutException: Command execution timeout for command: (PING), params: [], Redis client: [addr=redis://localhost:6379]
+	at org.redisson.client.RedisConnection.lambda$async$0(RedisConnection.java:244)
+	at io.netty.util.HashedWheelTimer$HashedWheelTimeout.run(HashedWheelTimer.java:715)
+	at io.netty.util.concurrent.ImmediateExecutor.execute(ImmediateExecutor.java:34)
+	at io.netty.util.HashedWheelTimer$HashedWheelTimeout.expire(HashedWheelTimer.java:703)
+	at io.netty.util.HashedWheelTimer$HashedWheelBucket.expireTimeouts(HashedWheelTimer.java:790)
+	at io.netty.util.HashedWheelTimer$Worker.run(HashedWheelTimer.java:503)
+	at io.netty.util.concurrent.FastThreadLocalRunnable.run(FastThreadLocalRunnable.java:30)
+	at java.base/java.lang.Thread.run(Thread.java:834)
+[2022-11-17 07:01:13,697] ERROR [58716 - redisson-timer-4-1 - {org.redisson.client.handler.PingConnectionHandler => lambda$sendPing$1, %PARSER_ERROR[l]}] org.redisson.client.handler.PingConnectionHandler : Unable to send PING command over channel: [id: 0x12425166, L:/127.0.0.1:50409 - R:localhost/127.0.0.1:6379]
+org.redisson.client.RedisTimeoutException: Command execution timeout for command: (PING), params: [], Redis client: [addr=redis://localhost:6379]
+	at org.redisson.client.RedisConnection.lambda$async$0(RedisConnection.java:244)
+	at io.netty.util.HashedWheelTimer$HashedWheelTimeout.run(HashedWheelTimer.java:715)
+	at io.netty.util.concurrent.ImmediateExecutor.execute(ImmediateExecutor.java:34)
+	at io.netty.util.HashedWheelTimer$HashedWheelTimeout.expire(HashedWheelTimer.java:703)
+	at io.netty.util.HashedWheelTimer$HashedWheelBucket.expireTimeouts(HashedWheelTimer.java:790)
+	at io.netty.util.HashedWheelTimer$Worker.run(HashedWheelTimer.java:503)
+	at io.netty.util.concurrent.FastThreadLocalRunnable.run(FastThreadLocalRunnable.java:30)
+	at java.base/java.lang.Thread.run(Thread.java:834)
+[2022-11-17 07:01:13,699] ERROR [58716 - redisson-timer-4-1 - {org.redisson.client.handler.PingConnectionHandler => lambda$sendPing$1, %PARSER_ERROR[l]}] org.redisson.client.handler.PingConnectionHandler : Unable to send PING command over channel: [id: 0x3c864e4a, L:/127.0.0.1:50410 - R:localhost/127.0.0.1:6379]
+org.redisson.client.RedisTimeoutException: Command execution timeout for command: (PING), params: [], Redis client: [addr=redis://localhost:6379]
+	at org.redisson.client.RedisConnection.lambda$async$0(RedisConnection.java:244)
+	at io.netty.util.HashedWheelTimer$HashedWheelTimeout.run(HashedWheelTimer.java:715)
+	at io.netty.util.concurrent.ImmediateExecutor.execute(ImmediateExecutor.java:34)
+	at io.netty.util.HashedWheelTimer$HashedWheelTimeout.expire(HashedWheelTimer.java:703)
+	at io.netty.util.HashedWheelTimer$HashedWheelBucket.expireTimeouts(HashedWheelTimer.java:790)
+	at io.netty.util.HashedWheelTimer$Worker.run(HashedWheelTimer.java:503)
+	at io.netty.util.concurrent.FastThreadLocalRunnable.run(FastThreadLocalRunnable.java:30)
+	at java.base/java.lang.Thread.run(Thread.java:834)
+[2022-11-17 07:01:13,699] ERROR [58716 - redisson-timer-4-1 - {org.redisson.client.handler.PingConnectionHandler => lambda$sendPing$1, %PARSER_ERROR[l]}] org.redisson.client.handler.PingConnectionHandler : Unable to send PING command over channel: [id: 0x4341c1c9, L:/127.0.0.1:50411 - R:localhost/127.0.0.1:6379]
+org.redisson.client.RedisTimeoutException: Command execution timeout for command: (PING), params: [], Redis client: [addr=redis://localhost:6379]
+	at org.redisson.client.RedisConnection.lambda$async$0(RedisConnection.java:244)
+	at io.netty.util.HashedWheelTimer$HashedWheelTimeout.run(HashedWheelTimer.java:715)
+	at io.netty.util.concurrent.ImmediateExecutor.execute(ImmediateExecutor.java:34)
+	at io.netty.util.HashedWheelTimer$HashedWheelTimeout.expire(HashedWheelTimer.java:703)
+	at io.netty.util.HashedWheelTimer$HashedWheelBucket.expireTimeouts(HashedWheelTimer.java:790)
+	at io.netty.util.HashedWheelTimer$Worker.run(HashedWheelTimer.java:503)
+	at io.netty.util.concurrent.FastThreadLocalRunnable.run(FastThreadLocalRunnable.java:30)
+	at java.base/java.lang.Thread.run(Thread.java:834)
+[2022-11-17 07:01:13,700] ERROR [58716 - redisson-timer-4-1 - {org.redisson.client.handler.PingConnectionHandler => lambda$sendPing$1, %PARSER_ERROR[l]}] org.redisson.client.handler.PingConnectionHandler : Unable to send PING command over channel: [id: 0xdfe9f41f, L:/127.0.0.1:50413 - R:localhost/127.0.0.1:6379]
+org.redisson.client.RedisTimeoutException: Command execution timeout for command: (PING), params: [], Redis client: [addr=redis://localhost:6379]
+	at org.redisson.client.RedisConnection.lambda$async$0(RedisConnection.java:244)
+	at io.netty.util.HashedWheelTimer$HashedWheelTimeout.run(HashedWheelTimer.java:715)
+	at io.netty.util.concurrent.ImmediateExecutor.execute(ImmediateExecutor.java:34)
+	at io.netty.util.HashedWheelTimer$HashedWheelTimeout.expire(HashedWheelTimer.java:703)
+	at io.netty.util.HashedWheelTimer$HashedWheelBucket.expireTimeouts(HashedWheelTimer.java:790)
+	at io.netty.util.HashedWheelTimer$Worker.run(HashedWheelTimer.java:503)
+	at io.netty.util.concurrent.FastThreadLocalRunnable.run(FastThreadLocalRunnable.java:30)
+	at java.base/java.lang.Thread.run(Thread.java:834)
+[2022-11-17 07:01:13,701] ERROR [58716 - redisson-timer-4-1 - {org.redisson.client.handler.PingConnectionHandler => lambda$sendPing$1, %PARSER_ERROR[l]}] org.redisson.client.handler.PingConnectionHandler : Unable to send PING command over channel: [id: 0xa355f30d, L:/127.0.0.1:50412 - R:localhost/127.0.0.1:6379]
+org.redisson.client.RedisTimeoutException: Command execution timeout for command: (PING), params: [], Redis client: [addr=redis://localhost:6379]
+	at org.redisson.client.RedisConnection.lambda$async$0(RedisConnection.java:244)
+	at io.netty.util.HashedWheelTimer$HashedWheelTimeout.run(HashedWheelTimer.java:715)
+	at io.netty.util.concurrent.ImmediateExecutor.execute(ImmediateExecutor.java:34)
+	at io.netty.util.HashedWheelTimer$HashedWheelTimeout.expire(HashedWheelTimer.java:703)
+	at io.netty.util.HashedWheelTimer$HashedWheelBucket.expireTimeouts(HashedWheelTimer.java:790)
+	at io.netty.util.HashedWheelTimer$Worker.run(HashedWheelTimer.java:503)
+	at io.netty.util.concurrent.FastThreadLocalRunnable.run(FastThreadLocalRunnable.java:30)
+	at java.base/java.lang.Thread.run(Thread.java:834)
+[2022-11-17 07:01:13,702] ERROR [58716 - redisson-timer-4-1 - {org.redisson.client.handler.PingConnectionHandler => lambda$sendPing$1, %PARSER_ERROR[l]}] org.redisson.client.handler.PingConnectionHandler : Unable to send PING command over channel: [id: 0x2a1b589f, L:/127.0.0.1:50415 - R:localhost/127.0.0.1:6379]
+org.redisson.client.RedisTimeoutException: Command execution timeout for command: (PING), params: [], Redis client: [addr=redis://localhost:6379]
+	at org.redisson.client.RedisConnection.lambda$async$0(RedisConnection.java:244)
+	at io.netty.util.HashedWheelTimer$HashedWheelTimeout.run(HashedWheelTimer.java:715)
+	at io.netty.util.concurrent.ImmediateExecutor.execute(ImmediateExecutor.java:34)
+	at io.netty.util.HashedWheelTimer$HashedWheelTimeout.expire(HashedWheelTimer.java:703)
+	at io.netty.util.HashedWheelTimer$HashedWheelBucket.expireTimeouts(HashedWheelTimer.java:790)
+	at io.netty.util.HashedWheelTimer$Worker.run(HashedWheelTimer.java:503)
+	at io.netty.util.concurrent.FastThreadLocalRunnable.run(FastThreadLocalRunnable.java:30)
+	at java.base/java.lang.Thread.run(Thread.java:834)
+[2022-11-17 07:01:13,703] ERROR [58716 - redisson-timer-4-1 - {org.redisson.client.handler.PingConnectionHandler => lambda$sendPing$1, %PARSER_ERROR[l]}] org.redisson.client.handler.PingConnectionHandler : Unable to send PING command over channel: [id: 0xe09718b8, L:/127.0.0.1:50414 - R:localhost/127.0.0.1:6379]
+org.redisson.client.RedisTimeoutException: Command execution timeout for command: (PING), params: [], Redis client: [addr=redis://localhost:6379]
+	at org.redisson.client.RedisConnection.lambda$async$0(RedisConnection.java:244)
+	at io.netty.util.HashedWheelTimer$HashedWheelTimeout.run(HashedWheelTimer.java:715)
+	at io.netty.util.concurrent.ImmediateExecutor.execute(ImmediateExecutor.java:34)
+	at io.netty.util.HashedWheelTimer$HashedWheelTimeout.expire(HashedWheelTimer.java:703)
+	at io.netty.util.HashedWheelTimer$HashedWheelBucket.expireTimeouts(HashedWheelTimer.java:790)
+	at io.netty.util.HashedWheelTimer$Worker.run(HashedWheelTimer.java:503)
+	at io.netty.util.concurrent.FastThreadLocalRunnable.run(FastThreadLocalRunnable.java:30)
+	at java.base/java.lang.Thread.run(Thread.java:834)
+[2022-11-17 15:10:20,177] INFO  [44056 - main - {org.springframework.boot.StartupInfoLogger => logStarting, %PARSER_ERROR[l]}] com.service.order.file.FileUtilBackUpTest : Starting FileUtilBackUpTest using Java 11.0.13 on DESKTOP-GK5I9BP with PID 44056 (started by apdh1 in D:\study\practice\assignment\order)
+[2022-11-17 15:10:20,179] INFO  [44056 - main - {org.springframework.boot.SpringApplication => logStartupProfileInfo, %PARSER_ERROR[l]}] com.service.order.file.FileUtilBackUpTest : No active profile set, falling back to 1 default profile: "default"
+[2022-11-17 15:10:21,260] INFO  [44056 - main - {org.springframework.data.repository.config.RepositoryConfigurationDelegate => multipleStoresDetected, %PARSER_ERROR[l]}] org.springframework.data.repository.config.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode
+[2022-11-17 15:10:21,262] INFO  [44056 - main - {org.springframework.data.repository.config.RepositoryConfigurationDelegate => registerRepositoriesIn, %PARSER_ERROR[l]}] org.springframework.data.repository.config.RepositoryConfigurationDelegate : Bootstrapping Spring Data JDBC repositories in DEFAULT mode.
+[2022-11-17 15:10:21,313] INFO  [44056 - main - {org.springframework.data.repository.config.RepositoryConfigurationExtensionSupport => isStrictRepositoryCandidate, %PARSER_ERROR[l]}] org.springframework.data.repository.config.RepositoryConfigurationExtensionSupport : Spring Data JDBC - Could not safely identify store assignment for repository candidate interface com.service.order.repository.order.OrderRepository; If you want this repository to be a JDBC repository, consider annotating your entities with one of these annotations: org.springframework.data.relational.core.mapping.Table.
+[2022-11-17 15:10:21,317] INFO  [44056 - main - {org.springframework.data.repository.config.RepositoryConfigurationExtensionSupport => isStrictRepositoryCandidate, %PARSER_ERROR[l]}] org.springframework.data.repository.config.RepositoryConfigurationExtensionSupport : Spring Data JDBC - Could not safely identify store assignment for repository candidate interface com.service.order.repository.product.ProductRepository; If you want this repository to be a JDBC repository, consider annotating your entities with one of these annotations: org.springframework.data.relational.core.mapping.Table.
+[2022-11-17 15:10:21,319] INFO  [44056 - main - {org.springframework.data.repository.config.RepositoryConfigurationDelegate => registerRepositoriesIn, %PARSER_ERROR[l]}] org.springframework.data.repository.config.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 49 ms. Found 0 JDBC repository interfaces.
+[2022-11-17 15:10:21,331] INFO  [44056 - main - {org.springframework.data.repository.config.RepositoryConfigurationDelegate => multipleStoresDetected, %PARSER_ERROR[l]}] org.springframework.data.repository.config.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode
+[2022-11-17 15:10:21,333] INFO  [44056 - main - {org.springframework.data.repository.config.RepositoryConfigurationDelegate => registerRepositoriesIn, %PARSER_ERROR[l]}] org.springframework.data.repository.config.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+[2022-11-17 15:10:21,683] INFO  [44056 - main - {org.springframework.data.repository.config.RepositoryConfigurationDelegate => registerRepositoriesIn, %PARSER_ERROR[l]}] org.springframework.data.repository.config.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 347 ms. Found 2 JPA repository interfaces.
+[2022-11-17 15:10:21,697] INFO  [44056 - main - {org.springframework.data.repository.config.RepositoryConfigurationDelegate => multipleStoresDetected, %PARSER_ERROR[l]}] org.springframework.data.repository.config.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode
+[2022-11-17 15:10:21,698] INFO  [44056 - main - {org.springframework.data.repository.config.RepositoryConfigurationDelegate => registerRepositoriesIn, %PARSER_ERROR[l]}] org.springframework.data.repository.config.RepositoryConfigurationDelegate : Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+[2022-11-17 15:10:21,713] INFO  [44056 - main - {org.springframework.data.repository.config.RepositoryConfigurationExtensionSupport => isStrictRepositoryCandidate, %PARSER_ERROR[l]}] org.springframework.data.repository.config.RepositoryConfigurationExtensionSupport : Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.service.order.repository.order.OrderRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository
+[2022-11-17 15:10:21,713] INFO  [44056 - main - {org.springframework.data.repository.config.RepositoryConfigurationExtensionSupport => isStrictRepositoryCandidate, %PARSER_ERROR[l]}] org.springframework.data.repository.config.RepositoryConfigurationExtensionSupport : Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.service.order.repository.product.ProductRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository
+[2022-11-17 15:10:21,714] INFO  [44056 - main - {org.springframework.data.repository.config.RepositoryConfigurationDelegate => registerRepositoriesIn, %PARSER_ERROR[l]}] org.springframework.data.repository.config.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 8 ms. Found 0 Redis repository interfaces.
+[2022-11-17 15:10:22,095] INFO  [44056 - main - {org.springframework.context.support.PostProcessorRegistrationDelegate$BeanPostProcessorChecker => postProcessAfterInitialization, %PARSER_ERROR[l]}] org.springframework.context.support.PostProcessorRegistrationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.ws.config.annotation.DelegatingWsConfiguration' of type [org.springframework.ws.config.annotation.DelegatingWsConfiguration$$EnhancerBySpringCGLIB$$3c886b24] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+[2022-11-17 15:10:22,150] INFO  [44056 - main - {org.springframework.ws.soap.addressing.server.AbstractAddressingEndpointMapping => afterPropertiesSet, %PARSER_ERROR[l]}] org.springframework.ws.soap.addressing.server.AnnotationActionEndpointMapping : Supporting [WS-Addressing August 2004, WS-Addressing 1.0]
+[2022-11-17 15:10:22,528] INFO  [44056 - main - {org.hibernate.jpa.internal.util.LogHelper => logPersistenceUnitInformation, %PARSER_ERROR[l]}] org.hibernate.jpa.internal.util.LogHelper : HHH000204: Processing PersistenceUnitInfo [name: default]
+[2022-11-17 15:10:22,589] INFO  [44056 - main - {org.hibernate.Version => logVersion, %PARSER_ERROR[l]}] org.hibernate.Version : HHH000412: Hibernate ORM core version 5.6.12.Final
+[2022-11-17 15:10:22,747] INFO  [44056 - main - {org.hibernate.annotations.common.reflection.java.JavaReflectionManager => <clinit>, %PARSER_ERROR[l]}] org.hibernate.annotations.common.Version : HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+[2022-11-17 15:10:24,253] INFO  [44056 - main - {com.zaxxer.hikari.HikariDataSource => getConnection, %PARSER_ERROR[l]}] com.zaxxer.hikari.HikariDataSource : HikariPool-1 - Starting...
+[2022-11-17 15:10:24,324] INFO  [44056 - main - {com.zaxxer.hikari.HikariDataSource => getConnection, %PARSER_ERROR[l]}] com.zaxxer.hikari.HikariDataSource : HikariPool-1 - Start completed.
+[2022-11-17 15:10:24,342] INFO  [44056 - main - {org.hibernate.dialect.Dialect => <init>, %PARSER_ERROR[l]}] org.hibernate.dialect.Dialect : HHH000400: Using dialect: org.hibernate.dialect.MariaDB103Dialect
+[2022-11-17 15:10:25,088] INFO  [44056 - main - {org.hibernate.engine.transaction.jta.platform.internal.JtaPlatformInitiator => initiateService, %PARSER_ERROR[l]}] org.hibernate.engine.transaction.jta.platform.internal.JtaPlatformInitiator : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+[2022-11-17 15:10:25,097] INFO  [44056 - main - {org.springframework.orm.jpa.AbstractEntityManagerFactoryBean => buildNativeEntityManagerFactory, %PARSER_ERROR[l]}] org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+[2022-11-17 15:10:25,380] INFO  [44056 - main - {org.redisson.Version => logVersion, %PARSER_ERROR[l]}] org.redisson.Version : Redisson 3.17.7
+[2022-11-17 15:10:30,108] INFO  [44056 - redisson-netty-2-7 - {org.redisson.connection.pool.ConnectionPool => lambda$createConnection$1, %PARSER_ERROR[l]}] org.redisson.connection.pool.MasterPubSubConnectionPool : 1 connections initialized for localhost/127.0.0.1:6379
+[2022-11-17 15:10:30,206] INFO  [44056 - redisson-netty-2-20 - {org.redisson.connection.pool.ConnectionPool => lambda$createConnection$1, %PARSER_ERROR[l]}] org.redisson.connection.pool.MasterConnectionPool : 24 connections initialized for localhost/127.0.0.1:6379
+[2022-11-17 15:10:31,902] WARN  [44056 - main - {org.springframework.boot.autoconfigure.thymeleaf.ThymeleafAutoConfiguration$DefaultTemplateResolverConfiguration => checkTemplateLocationExists, %PARSER_ERROR[l]}] org.springframework.boot.autoconfigure.thymeleaf.ThymeleafAutoConfiguration$DefaultTemplateResolverConfiguration : Cannot find template location: classpath:/templates/ (please add some templates, check your Thymeleaf configuration, or set spring.thymeleaf.check-template-location=false)
+[2022-11-17 15:10:32,816] INFO  [44056 - main - {org.springframework.boot.StartupInfoLogger => logStarted, %PARSER_ERROR[l]}] com.service.order.file.FileUtilBackUpTest : Started FileUtilBackUpTest in 13.027 seconds (JVM running for 14.232)
+[2022-11-17 15:10:32,915] INFO  [44056 - SpringApplicationShutdownHook - {org.springframework.orm.jpa.AbstractEntityManagerFactoryBean => destroy, %PARSER_ERROR[l]}] org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+[2022-11-17 15:10:32,918] INFO  [44056 - SpringApplicationShutdownHook - {com.zaxxer.hikari.HikariDataSource => close, %PARSER_ERROR[l]}] com.zaxxer.hikari.HikariDataSource : HikariPool-1 - Shutdown initiated...
+[2022-11-17 15:10:32,937] INFO  [44056 - SpringApplicationShutdownHook - {com.zaxxer.hikari.HikariDataSource => close, %PARSER_ERROR[l]}] com.zaxxer.hikari.HikariDataSource : HikariPool-1 - Shutdown completed.
+[2022-11-17 15:24:57,736] INFO  [59956 - main - {org.springframework.boot.StartupInfoLogger => logStarting, %PARSER_ERROR[l]}] com.service.order.file.FileUtilBackUpTest : Starting FileUtilBackUpTest using Java 11.0.13 on DESKTOP-GK5I9BP with PID 59956 (started by apdh1 in D:\study\practice\assignment\order)
+[2022-11-17 15:24:57,741] INFO  [59956 - main - {org.springframework.boot.SpringApplication => logStartupProfileInfo, %PARSER_ERROR[l]}] com.service.order.file.FileUtilBackUpTest : No active profile set, falling back to 1 default profile: "default"
+[2022-11-17 15:24:59,297] INFO  [59956 - main - {org.springframework.data.repository.config.RepositoryConfigurationDelegate => multipleStoresDetected, %PARSER_ERROR[l]}] org.springframework.data.repository.config.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode
+[2022-11-17 15:24:59,300] INFO  [59956 - main - {org.springframework.data.repository.config.RepositoryConfigurationDelegate => registerRepositoriesIn, %PARSER_ERROR[l]}] org.springframework.data.repository.config.RepositoryConfigurationDelegate : Bootstrapping Spring Data JDBC repositories in DEFAULT mode.
+[2022-11-17 15:24:59,357] INFO  [59956 - main - {org.springframework.data.repository.config.RepositoryConfigurationExtensionSupport => isStrictRepositoryCandidate, %PARSER_ERROR[l]}] org.springframework.data.repository.config.RepositoryConfigurationExtensionSupport : Spring Data JDBC - Could not safely identify store assignment for repository candidate interface com.service.order.repository.order.OrderRepository; If you want this repository to be a JDBC repository, consider annotating your entities with one of these annotations: org.springframework.data.relational.core.mapping.Table.
+[2022-11-17 15:24:59,361] INFO  [59956 - main - {org.springframework.data.repository.config.RepositoryConfigurationExtensionSupport => isStrictRepositoryCandidate, %PARSER_ERROR[l]}] org.springframework.data.repository.config.RepositoryConfigurationExtensionSupport : Spring Data JDBC - Could not safely identify store assignment for repository candidate interface com.service.order.repository.product.ProductRepository; If you want this repository to be a JDBC repository, consider annotating your entities with one of these annotations: org.springframework.data.relational.core.mapping.Table.
+[2022-11-17 15:24:59,362] INFO  [59956 - main - {org.springframework.data.repository.config.RepositoryConfigurationDelegate => registerRepositoriesIn, %PARSER_ERROR[l]}] org.springframework.data.repository.config.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 55 ms. Found 0 JDBC repository interfaces.
+[2022-11-17 15:24:59,373] INFO  [59956 - main - {org.springframework.data.repository.config.RepositoryConfigurationDelegate => multipleStoresDetected, %PARSER_ERROR[l]}] org.springframework.data.repository.config.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode
+[2022-11-17 15:24:59,375] INFO  [59956 - main - {org.springframework.data.repository.config.RepositoryConfigurationDelegate => registerRepositoriesIn, %PARSER_ERROR[l]}] org.springframework.data.repository.config.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+[2022-11-17 15:24:59,739] INFO  [59956 - main - {org.springframework.data.repository.config.RepositoryConfigurationDelegate => registerRepositoriesIn, %PARSER_ERROR[l]}] org.springframework.data.repository.config.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 360 ms. Found 2 JPA repository interfaces.
+[2022-11-17 15:24:59,761] INFO  [59956 - main - {org.springframework.data.repository.config.RepositoryConfigurationDelegate => multipleStoresDetected, %PARSER_ERROR[l]}] org.springframework.data.repository.config.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode
+[2022-11-17 15:24:59,763] INFO  [59956 - main - {org.springframework.data.repository.config.RepositoryConfigurationDelegate => registerRepositoriesIn, %PARSER_ERROR[l]}] org.springframework.data.repository.config.RepositoryConfigurationDelegate : Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+[2022-11-17 15:24:59,788] INFO  [59956 - main - {org.springframework.data.repository.config.RepositoryConfigurationExtensionSupport => isStrictRepositoryCandidate, %PARSER_ERROR[l]}] org.springframework.data.repository.config.RepositoryConfigurationExtensionSupport : Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.service.order.repository.order.OrderRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository
+[2022-11-17 15:24:59,789] INFO  [59956 - main - {org.springframework.data.repository.config.RepositoryConfigurationExtensionSupport => isStrictRepositoryCandidate, %PARSER_ERROR[l]}] org.springframework.data.repository.config.RepositoryConfigurationExtensionSupport : Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.service.order.repository.product.ProductRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository
+[2022-11-17 15:24:59,790] INFO  [59956 - main - {org.springframework.data.repository.config.RepositoryConfigurationDelegate => registerRepositoriesIn, %PARSER_ERROR[l]}] org.springframework.data.repository.config.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 12 ms. Found 0 Redis repository interfaces.
+[2022-11-17 15:25:00,514] INFO  [59956 - main - {org.springframework.context.support.PostProcessorRegistrationDelegate$BeanPostProcessorChecker => postProcessAfterInitialization, %PARSER_ERROR[l]}] org.springframework.context.support.PostProcessorRegistrationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.ws.config.annotation.DelegatingWsConfiguration' of type [org.springframework.ws.config.annotation.DelegatingWsConfiguration$$EnhancerBySpringCGLIB$$5018c745] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+[2022-11-17 15:25:00,592] INFO  [59956 - main - {org.springframework.ws.soap.addressing.server.AbstractAddressingEndpointMapping => afterPropertiesSet, %PARSER_ERROR[l]}] org.springframework.ws.soap.addressing.server.AnnotationActionEndpointMapping : Supporting [WS-Addressing August 2004, WS-Addressing 1.0]
+[2022-11-17 15:25:01,077] INFO  [59956 - main - {org.hibernate.jpa.internal.util.LogHelper => logPersistenceUnitInformation, %PARSER_ERROR[l]}] org.hibernate.jpa.internal.util.LogHelper : HHH000204: Processing PersistenceUnitInfo [name: default]
+[2022-11-17 15:25:01,169] INFO  [59956 - main - {org.hibernate.Version => logVersion, %PARSER_ERROR[l]}] org.hibernate.Version : HHH000412: Hibernate ORM core version 5.6.12.Final
+[2022-11-17 15:25:01,336] INFO  [59956 - main - {org.hibernate.annotations.common.reflection.java.JavaReflectionManager => <clinit>, %PARSER_ERROR[l]}] org.hibernate.annotations.common.Version : HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+[2022-11-17 15:25:02,805] INFO  [59956 - main - {com.zaxxer.hikari.HikariDataSource => getConnection, %PARSER_ERROR[l]}] com.zaxxer.hikari.HikariDataSource : HikariPool-1 - Starting...
+[2022-11-17 15:25:02,873] INFO  [59956 - main - {com.zaxxer.hikari.HikariDataSource => getConnection, %PARSER_ERROR[l]}] com.zaxxer.hikari.HikariDataSource : HikariPool-1 - Start completed.
+[2022-11-17 15:25:02,890] INFO  [59956 - main - {org.hibernate.dialect.Dialect => <init>, %PARSER_ERROR[l]}] org.hibernate.dialect.Dialect : HHH000400: Using dialect: org.hibernate.dialect.MariaDB103Dialect
+[2022-11-17 15:25:03,569] INFO  [59956 - main - {org.hibernate.engine.transaction.jta.platform.internal.JtaPlatformInitiator => initiateService, %PARSER_ERROR[l]}] org.hibernate.engine.transaction.jta.platform.internal.JtaPlatformInitiator : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+[2022-11-17 15:25:03,577] INFO  [59956 - main - {org.springframework.orm.jpa.AbstractEntityManagerFactoryBean => buildNativeEntityManagerFactory, %PARSER_ERROR[l]}] org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+[2022-11-17 15:25:03,870] INFO  [59956 - main - {org.redisson.Version => logVersion, %PARSER_ERROR[l]}] org.redisson.Version : Redisson 3.17.7
+[2022-11-17 15:25:08,592] INFO  [59956 - redisson-netty-2-6 - {org.redisson.connection.pool.ConnectionPool => lambda$createConnection$1, %PARSER_ERROR[l]}] org.redisson.connection.pool.MasterPubSubConnectionPool : 1 connections initialized for localhost/127.0.0.1:6379
+[2022-11-17 15:25:08,665] INFO  [59956 - redisson-netty-2-20 - {org.redisson.connection.pool.ConnectionPool => lambda$createConnection$1, %PARSER_ERROR[l]}] org.redisson.connection.pool.MasterConnectionPool : 24 connections initialized for localhost/127.0.0.1:6379
+[2022-11-17 15:25:10,390] WARN  [59956 - main - {org.springframework.boot.autoconfigure.thymeleaf.ThymeleafAutoConfiguration$DefaultTemplateResolverConfiguration => checkTemplateLocationExists, %PARSER_ERROR[l]}] org.springframework.boot.autoconfigure.thymeleaf.ThymeleafAutoConfiguration$DefaultTemplateResolverConfiguration : Cannot find template location: classpath:/templates/ (please add some templates, check your Thymeleaf configuration, or set spring.thymeleaf.check-template-location=false)
+[2022-11-17 15:25:11,233] INFO  [59956 - main - {org.springframework.boot.StartupInfoLogger => logStarted, %PARSER_ERROR[l]}] com.service.order.file.FileUtilBackUpTest : Started FileUtilBackUpTest in 14.081 seconds (JVM running for 15.573)
+[2022-11-17 15:25:11,493] INFO  [59956 - SpringApplicationShutdownHook - {org.springframework.orm.jpa.AbstractEntityManagerFactoryBean => destroy, %PARSER_ERROR[l]}] org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+[2022-11-17 15:25:11,496] INFO  [59956 - SpringApplicationShutdownHook - {com.zaxxer.hikari.HikariDataSource => close, %PARSER_ERROR[l]}] com.zaxxer.hikari.HikariDataSource : HikariPool-1 - Shutdown initiated...
+[2022-11-17 15:25:11,511] INFO  [59956 - SpringApplicationShutdownHook - {com.zaxxer.hikari.HikariDataSource => close, %PARSER_ERROR[l]}] com.zaxxer.hikari.HikariDataSource : HikariPool-1 - Shutdown completed.
+[2022-11-17 15:25:24,552] INFO  [61908 - main - {org.springframework.boot.StartupInfoLogger => logStarting, %PARSER_ERROR[l]}] com.service.order.file.FileUtilBackUpTest : Starting FileUtilBackUpTest using Java 11.0.13 on DESKTOP-GK5I9BP with PID 61908 (started by apdh1 in D:\study\practice\assignment\order)
+[2022-11-17 15:25:24,554] INFO  [61908 - main - {org.springframework.boot.SpringApplication => logStartupProfileInfo, %PARSER_ERROR[l]}] com.service.order.file.FileUtilBackUpTest : No active profile set, falling back to 1 default profile: "default"
+[2022-11-17 15:25:25,833] INFO  [61908 - main - {org.springframework.data.repository.config.RepositoryConfigurationDelegate => multipleStoresDetected, %PARSER_ERROR[l]}] org.springframework.data.repository.config.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode
+[2022-11-17 15:25:25,836] INFO  [61908 - main - {org.springframework.data.repository.config.RepositoryConfigurationDelegate => registerRepositoriesIn, %PARSER_ERROR[l]}] org.springframework.data.repository.config.RepositoryConfigurationDelegate : Bootstrapping Spring Data JDBC repositories in DEFAULT mode.
+[2022-11-17 15:25:25,896] INFO  [61908 - main - {org.springframework.data.repository.config.RepositoryConfigurationExtensionSupport => isStrictRepositoryCandidate, %PARSER_ERROR[l]}] org.springframework.data.repository.config.RepositoryConfigurationExtensionSupport : Spring Data JDBC - Could not safely identify store assignment for repository candidate interface com.service.order.repository.order.OrderRepository; If you want this repository to be a JDBC repository, consider annotating your entities with one of these annotations: org.springframework.data.relational.core.mapping.Table.
+[2022-11-17 15:25:25,900] INFO  [61908 - main - {org.springframework.data.repository.config.RepositoryConfigurationExtensionSupport => isStrictRepositoryCandidate, %PARSER_ERROR[l]}] org.springframework.data.repository.config.RepositoryConfigurationExtensionSupport : Spring Data JDBC - Could not safely identify store assignment for repository candidate interface com.service.order.repository.product.ProductRepository; If you want this repository to be a JDBC repository, consider annotating your entities with one of these annotations: org.springframework.data.relational.core.mapping.Table.
+[2022-11-17 15:25:25,901] INFO  [61908 - main - {org.springframework.data.repository.config.RepositoryConfigurationDelegate => registerRepositoriesIn, %PARSER_ERROR[l]}] org.springframework.data.repository.config.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 57 ms. Found 0 JDBC repository interfaces.
+[2022-11-17 15:25:25,916] INFO  [61908 - main - {org.springframework.data.repository.config.RepositoryConfigurationDelegate => multipleStoresDetected, %PARSER_ERROR[l]}] org.springframework.data.repository.config.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode
+[2022-11-17 15:25:25,919] INFO  [61908 - main - {org.springframework.data.repository.config.RepositoryConfigurationDelegate => registerRepositoriesIn, %PARSER_ERROR[l]}] org.springframework.data.repository.config.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+[2022-11-17 15:25:26,288] INFO  [61908 - main - {org.springframework.data.repository.config.RepositoryConfigurationDelegate => registerRepositoriesIn, %PARSER_ERROR[l]}] org.springframework.data.repository.config.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 364 ms. Found 2 JPA repository interfaces.
+[2022-11-17 15:25:26,305] INFO  [61908 - main - {org.springframework.data.repository.config.RepositoryConfigurationDelegate => multipleStoresDetected, %PARSER_ERROR[l]}] org.springframework.data.repository.config.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode
+[2022-11-17 15:25:26,305] INFO  [61908 - main - {org.springframework.data.repository.config.RepositoryConfigurationDelegate => registerRepositoriesIn, %PARSER_ERROR[l]}] org.springframework.data.repository.config.RepositoryConfigurationDelegate : Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+[2022-11-17 15:25:26,323] INFO  [61908 - main - {org.springframework.data.repository.config.RepositoryConfigurationExtensionSupport => isStrictRepositoryCandidate, %PARSER_ERROR[l]}] org.springframework.data.repository.config.RepositoryConfigurationExtensionSupport : Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.service.order.repository.order.OrderRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository
+[2022-11-17 15:25:26,323] INFO  [61908 - main - {org.springframework.data.repository.config.RepositoryConfigurationExtensionSupport => isStrictRepositoryCandidate, %PARSER_ERROR[l]}] org.springframework.data.repository.config.RepositoryConfigurationExtensionSupport : Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.service.order.repository.product.ProductRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository
+[2022-11-17 15:25:26,323] INFO  [61908 - main - {org.springframework.data.repository.config.RepositoryConfigurationDelegate => registerRepositoriesIn, %PARSER_ERROR[l]}] org.springframework.data.repository.config.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 8 ms. Found 0 Redis repository interfaces.
+[2022-11-17 15:25:26,707] INFO  [61908 - main - {org.springframework.context.support.PostProcessorRegistrationDelegate$BeanPostProcessorChecker => postProcessAfterInitialization, %PARSER_ERROR[l]}] org.springframework.context.support.PostProcessorRegistrationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.ws.config.annotation.DelegatingWsConfiguration' of type [org.springframework.ws.config.annotation.DelegatingWsConfiguration$$EnhancerBySpringCGLIB$$a421dd18] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+[2022-11-17 15:25:26,767] INFO  [61908 - main - {org.springframework.ws.soap.addressing.server.AbstractAddressingEndpointMapping => afterPropertiesSet, %PARSER_ERROR[l]}] org.springframework.ws.soap.addressing.server.AnnotationActionEndpointMapping : Supporting [WS-Addressing August 2004, WS-Addressing 1.0]
+[2022-11-17 15:25:27,166] INFO  [61908 - main - {org.hibernate.jpa.internal.util.LogHelper => logPersistenceUnitInformation, %PARSER_ERROR[l]}] org.hibernate.jpa.internal.util.LogHelper : HHH000204: Processing PersistenceUnitInfo [name: default]
+[2022-11-17 15:25:27,213] INFO  [61908 - main - {org.hibernate.Version => logVersion, %PARSER_ERROR[l]}] org.hibernate.Version : HHH000412: Hibernate ORM core version 5.6.12.Final
+[2022-11-17 15:25:27,387] INFO  [61908 - main - {org.hibernate.annotations.common.reflection.java.JavaReflectionManager => <clinit>, %PARSER_ERROR[l]}] org.hibernate.annotations.common.Version : HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+[2022-11-17 15:25:28,942] INFO  [61908 - main - {com.zaxxer.hikari.HikariDataSource => getConnection, %PARSER_ERROR[l]}] com.zaxxer.hikari.HikariDataSource : HikariPool-1 - Starting...
+[2022-11-17 15:25:29,016] INFO  [61908 - main - {com.zaxxer.hikari.HikariDataSource => getConnection, %PARSER_ERROR[l]}] com.zaxxer.hikari.HikariDataSource : HikariPool-1 - Start completed.
+[2022-11-17 15:25:29,032] INFO  [61908 - main - {org.hibernate.dialect.Dialect => <init>, %PARSER_ERROR[l]}] org.hibernate.dialect.Dialect : HHH000400: Using dialect: org.hibernate.dialect.MariaDB103Dialect
+[2022-11-17 15:25:29,794] INFO  [61908 - main - {org.hibernate.engine.transaction.jta.platform.internal.JtaPlatformInitiator => initiateService, %PARSER_ERROR[l]}] org.hibernate.engine.transaction.jta.platform.internal.JtaPlatformInitiator : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+[2022-11-17 15:25:29,802] INFO  [61908 - main - {org.springframework.orm.jpa.AbstractEntityManagerFactoryBean => buildNativeEntityManagerFactory, %PARSER_ERROR[l]}] org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+[2022-11-17 15:25:30,142] INFO  [61908 - main - {org.redisson.Version => logVersion, %PARSER_ERROR[l]}] org.redisson.Version : Redisson 3.17.7
+[2022-11-17 15:25:35,868] INFO  [61908 - redisson-netty-2-7 - {org.redisson.connection.pool.ConnectionPool => lambda$createConnection$1, %PARSER_ERROR[l]}] org.redisson.connection.pool.MasterPubSubConnectionPool : 1 connections initialized for localhost/127.0.0.1:6379
+[2022-11-17 15:25:36,027] INFO  [61908 - redisson-netty-2-19 - {org.redisson.connection.pool.ConnectionPool => lambda$createConnection$1, %PARSER_ERROR[l]}] org.redisson.connection.pool.MasterConnectionPool : 24 connections initialized for localhost/127.0.0.1:6379
+[2022-11-17 15:25:38,243] WARN  [61908 - main - {org.springframework.boot.autoconfigure.thymeleaf.ThymeleafAutoConfiguration$DefaultTemplateResolverConfiguration => checkTemplateLocationExists, %PARSER_ERROR[l]}] org.springframework.boot.autoconfigure.thymeleaf.ThymeleafAutoConfiguration$DefaultTemplateResolverConfiguration : Cannot find template location: classpath:/templates/ (please add some templates, check your Thymeleaf configuration, or set spring.thymeleaf.check-template-location=false)
+[2022-11-17 15:25:39,977] INFO  [61908 - main - {org.springframework.boot.StartupInfoLogger => logStarted, %PARSER_ERROR[l]}] com.service.order.file.FileUtilBackUpTest : Started FileUtilBackUpTest in 15.917 seconds (JVM running for 17.471)
+[2022-11-17 15:25:40,660] INFO  [61908 - SpringApplicationShutdownHook - {org.springframework.orm.jpa.AbstractEntityManagerFactoryBean => destroy, %PARSER_ERROR[l]}] org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+[2022-11-17 15:25:40,662] INFO  [61908 - SpringApplicationShutdownHook - {com.zaxxer.hikari.HikariDataSource => close, %PARSER_ERROR[l]}] com.zaxxer.hikari.HikariDataSource : HikariPool-1 - Shutdown initiated...
+[2022-11-17 15:25:40,695] INFO  [61908 - SpringApplicationShutdownHook - {com.zaxxer.hikari.HikariDataSource => close, %PARSER_ERROR[l]}] com.zaxxer.hikari.HikariDataSource : HikariPool-1 - Shutdown completed.
+[2022-11-17 15:27:33,685] INFO  [58716 - SpringApplicationShutdownHook - {org.springframework.orm.jpa.AbstractEntityManagerFactoryBean => destroy, %PARSER_ERROR[l]}] org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+[2022-11-17 15:27:33,696] INFO  [58716 - SpringApplicationShutdownHook - {com.zaxxer.hikari.HikariDataSource => close, %PARSER_ERROR[l]}] com.zaxxer.hikari.HikariDataSource : HikariPool-1 - Shutdown initiated...
+[2022-11-17 15:27:33,710] INFO  [58716 - SpringApplicationShutdownHook - {com.zaxxer.hikari.HikariDataSource => close, %PARSER_ERROR[l]}] com.zaxxer.hikari.HikariDataSource : HikariPool-1 - Shutdown completed.
+[2022-11-17 15:27:47,169] INFO  [46172 - main - {org.springframework.boot.StartupInfoLogger => logStarting, %PARSER_ERROR[l]}] com.service.order.OrderApplication : Starting OrderApplication using Java 11.0.13 on DESKTOP-GK5I9BP with PID 46172 (D:\study\practice\assignment\order\target\classes started by apdh1 in D:\study\practice\assignment\order)
+[2022-11-17 15:27:47,173] INFO  [46172 - main - {org.springframework.boot.SpringApplication => logStartupProfileInfo, %PARSER_ERROR[l]}] com.service.order.OrderApplication : No active profile set, falling back to 1 default profile: "default"
+[2022-11-17 15:27:48,254] INFO  [46172 - main - {org.springframework.data.repository.config.RepositoryConfigurationDelegate => multipleStoresDetected, %PARSER_ERROR[l]}] org.springframework.data.repository.config.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode
+[2022-11-17 15:27:48,255] INFO  [46172 - main - {org.springframework.data.repository.config.RepositoryConfigurationDelegate => registerRepositoriesIn, %PARSER_ERROR[l]}] org.springframework.data.repository.config.RepositoryConfigurationDelegate : Bootstrapping Spring Data JDBC repositories in DEFAULT mode.
+[2022-11-17 15:27:48,309] INFO  [46172 - main - {org.springframework.data.repository.config.RepositoryConfigurationExtensionSupport => isStrictRepositoryCandidate, %PARSER_ERROR[l]}] org.springframework.data.repository.config.RepositoryConfigurationExtensionSupport : Spring Data JDBC - Could not safely identify store assignment for repository candidate interface com.service.order.repository.order.OrderRepository; If you want this repository to be a JDBC repository, consider annotating your entities with one of these annotations: org.springframework.data.relational.core.mapping.Table.
+[2022-11-17 15:27:48,316] INFO  [46172 - main - {org.springframework.data.repository.config.RepositoryConfigurationExtensionSupport => isStrictRepositoryCandidate, %PARSER_ERROR[l]}] org.springframework.data.repository.config.RepositoryConfigurationExtensionSupport : Spring Data JDBC - Could not safely identify store assignment for repository candidate interface com.service.order.repository.product.ProductRepository; If you want this repository to be a JDBC repository, consider annotating your entities with one of these annotations: org.springframework.data.relational.core.mapping.Table.
+[2022-11-17 15:27:48,318] INFO  [46172 - main - {org.springframework.data.repository.config.RepositoryConfigurationDelegate => registerRepositoriesIn, %PARSER_ERROR[l]}] org.springframework.data.repository.config.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 56 ms. Found 0 JDBC repository interfaces.
+[2022-11-17 15:27:48,338] INFO  [46172 - main - {org.springframework.data.repository.config.RepositoryConfigurationDelegate => multipleStoresDetected, %PARSER_ERROR[l]}] org.springframework.data.repository.config.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode
+[2022-11-17 15:27:48,338] INFO  [46172 - main - {org.springframework.data.repository.config.RepositoryConfigurationDelegate => registerRepositoriesIn, %PARSER_ERROR[l]}] org.springframework.data.repository.config.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+[2022-11-17 15:27:48,431] INFO  [46172 - main - {org.springframework.data.repository.config.RepositoryConfigurationDelegate => registerRepositoriesIn, %PARSER_ERROR[l]}] org.springframework.data.repository.config.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 87 ms. Found 2 JPA repository interfaces.
+[2022-11-17 15:27:48,450] INFO  [46172 - main - {org.springframework.data.repository.config.RepositoryConfigurationDelegate => multipleStoresDetected, %PARSER_ERROR[l]}] org.springframework.data.repository.config.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode
+[2022-11-17 15:27:48,453] INFO  [46172 - main - {org.springframework.data.repository.config.RepositoryConfigurationDelegate => registerRepositoriesIn, %PARSER_ERROR[l]}] org.springframework.data.repository.config.RepositoryConfigurationDelegate : Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+[2022-11-17 15:27:48,480] INFO  [46172 - main - {org.springframework.data.repository.config.RepositoryConfigurationExtensionSupport => isStrictRepositoryCandidate, %PARSER_ERROR[l]}] org.springframework.data.repository.config.RepositoryConfigurationExtensionSupport : Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.service.order.repository.order.OrderRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository
+[2022-11-17 15:27:48,481] INFO  [46172 - main - {org.springframework.data.repository.config.RepositoryConfigurationExtensionSupport => isStrictRepositoryCandidate, %PARSER_ERROR[l]}] org.springframework.data.repository.config.RepositoryConfigurationExtensionSupport : Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.service.order.repository.product.ProductRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository
+[2022-11-17 15:27:48,481] INFO  [46172 - main - {org.springframework.data.repository.config.RepositoryConfigurationDelegate => registerRepositoriesIn, %PARSER_ERROR[l]}] org.springframework.data.repository.config.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 14 ms. Found 0 Redis repository interfaces.
+[2022-11-17 15:27:48,953] INFO  [46172 - main - {org.springframework.context.support.PostProcessorRegistrationDelegate$BeanPostProcessorChecker => postProcessAfterInitialization, %PARSER_ERROR[l]}] org.springframework.context.support.PostProcessorRegistrationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.ws.config.annotation.DelegatingWsConfiguration' of type [org.springframework.ws.config.annotation.DelegatingWsConfiguration$$EnhancerBySpringCGLIB$$93fff213] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+[2022-11-17 15:27:49,036] INFO  [46172 - main - {org.springframework.ws.soap.addressing.server.AbstractAddressingEndpointMapping => afterPropertiesSet, %PARSER_ERROR[l]}] org.springframework.ws.soap.addressing.server.AnnotationActionEndpointMapping : Supporting [WS-Addressing August 2004, WS-Addressing 1.0]
+[2022-11-17 15:27:49,460] INFO  [46172 - main - {org.springframework.boot.web.embedded.tomcat.TomcatWebServer => initialize, %PARSER_ERROR[l]}] org.springframework.boot.web.embedded.tomcat.TomcatWebServer : Tomcat initialized with port(s): 9000 (http)
+[2022-11-17 15:27:49,470] INFO  [46172 - main - {org.apache.juli.logging.DirectJDKLog => log, %PARSER_ERROR[l]}] org.apache.catalina.core.StandardService : Starting service [Tomcat]
+[2022-11-17 15:27:49,471] INFO  [46172 - main - {org.apache.juli.logging.DirectJDKLog => log, %PARSER_ERROR[l]}] org.apache.catalina.core.StandardEngine : Starting Servlet engine: [Apache Tomcat/9.0.68]
+[2022-11-17 15:27:49,717] INFO  [46172 - main - {org.apache.juli.logging.DirectJDKLog => log, %PARSER_ERROR[l]}] org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/] : Initializing Spring embedded WebApplicationContext
+[2022-11-17 15:27:49,718] INFO  [46172 - main - {org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext => prepareWebApplicationContext, %PARSER_ERROR[l]}] org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 2507 ms
+[2022-11-17 15:27:49,929] INFO  [46172 - main - {org.hibernate.jpa.internal.util.LogHelper => logPersistenceUnitInformation, %PARSER_ERROR[l]}] org.hibernate.jpa.internal.util.LogHelper : HHH000204: Processing PersistenceUnitInfo [name: default]
+[2022-11-17 15:27:49,977] INFO  [46172 - main - {org.hibernate.Version => logVersion, %PARSER_ERROR[l]}] org.hibernate.Version : HHH000412: Hibernate ORM core version 5.6.12.Final
+[2022-11-17 15:27:50,177] INFO  [46172 - main - {org.hibernate.annotations.common.reflection.java.JavaReflectionManager => <clinit>, %PARSER_ERROR[l]}] org.hibernate.annotations.common.Version : HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+[2022-11-17 15:27:50,268] INFO  [46172 - main - {com.zaxxer.hikari.HikariDataSource => getConnection, %PARSER_ERROR[l]}] com.zaxxer.hikari.HikariDataSource : HikariPool-1 - Starting...
+[2022-11-17 15:27:50,351] INFO  [46172 - main - {com.zaxxer.hikari.HikariDataSource => getConnection, %PARSER_ERROR[l]}] com.zaxxer.hikari.HikariDataSource : HikariPool-1 - Start completed.
+[2022-11-17 15:27:50,370] INFO  [46172 - main - {org.hibernate.dialect.Dialect => <init>, %PARSER_ERROR[l]}] org.hibernate.dialect.Dialect : HHH000400: Using dialect: org.hibernate.dialect.MariaDB103Dialect
+[2022-11-17 15:27:51,121] INFO  [46172 - main - {org.hibernate.engine.transaction.jta.platform.internal.JtaPlatformInitiator => initiateService, %PARSER_ERROR[l]}] org.hibernate.engine.transaction.jta.platform.internal.JtaPlatformInitiator : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+[2022-11-17 15:27:51,128] INFO  [46172 - main - {org.springframework.orm.jpa.AbstractEntityManagerFactoryBean => buildNativeEntityManagerFactory, %PARSER_ERROR[l]}] org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+[2022-11-17 15:27:51,297] INFO  [46172 - main - {org.redisson.Version => logVersion, %PARSER_ERROR[l]}] org.redisson.Version : Redisson 3.17.7
+[2022-11-17 15:27:57,014] INFO  [46172 - redisson-netty-2-6 - {org.redisson.connection.pool.ConnectionPool => lambda$createConnection$1, %PARSER_ERROR[l]}] org.redisson.connection.pool.MasterPubSubConnectionPool : 1 connections initialized for localhost/127.0.0.1:6379
+[2022-11-17 15:28:07,072] WARN  [46172 - main - {org.springframework.context.support.AbstractApplicationContext => refresh, %PARSER_ERROR[l]}] org.springframework.boot.web.servlet.context.AnnotationConfigServletWebServerApplicationContext : Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'lockAopAspect' defined in file [D:\study\practice\assignment\order\target\classes\com\service\order\aop\lock\LockAopAspect.class]: Unsatisfied dependency expressed through constructor parameter 0; nested exception is org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'lockService' defined in file [D:\study\practice\assignment\order\target\classes\com\service\order\service\lock\LockService.class]: Unsatisfied dependency expressed through constructor parameter 0; nested exception is org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'redissonClient' defined in class path resource [com/service/order/config/redis/RedisConfig.class]: Bean instantiation via factory method failed; nested exception is org.springframework.beans.BeanInstantiationException: Failed to instantiate [org.redisson.api.RedissonClient]: Factory method 'redissonClient' threw exception; nested exception is org.redisson.client.RedisConnectionException: Unable to init enough connections amount! Only 7 of 24 were initialized. Redis server: localhost/127.0.0.1:6379
+[2022-11-17 15:28:07,072] INFO  [46172 - main - {org.springframework.orm.jpa.AbstractEntityManagerFactoryBean => destroy, %PARSER_ERROR[l]}] org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+[2022-11-17 15:28:07,076] INFO  [46172 - main - {com.zaxxer.hikari.HikariDataSource => close, %PARSER_ERROR[l]}] com.zaxxer.hikari.HikariDataSource : HikariPool-1 - Shutdown initiated...
+[2022-11-17 15:28:07,088] INFO  [46172 - main - {com.zaxxer.hikari.HikariDataSource => close, %PARSER_ERROR[l]}] com.zaxxer.hikari.HikariDataSource : HikariPool-1 - Shutdown completed.
+[2022-11-17 15:28:07,090] INFO  [46172 - main - {org.apache.juli.logging.DirectJDKLog => log, %PARSER_ERROR[l]}] org.apache.catalina.core.StandardService : Stopping service [Tomcat]
+[2022-11-17 15:28:07,101] INFO  [46172 - main - {org.springframework.boot.autoconfigure.logging.ConditionEvaluationReportLoggingListener => logMessage, %PARSER_ERROR[l]}] org.springframework.boot.autoconfigure.logging.ConditionEvaluationReportLoggingListener : 
+
+Error starting ApplicationContext. To display the conditions report re-run your application with 'debug' enabled.
+[2022-11-17 15:28:07,164] ERROR [46172 - main - {org.springframework.boot.SpringApplication => reportFailure, %PARSER_ERROR[l]}] org.springframework.boot.SpringApplication : Application run failed
+org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'lockAopAspect' defined in file [D:\study\practice\assignment\order\target\classes\com\service\order\aop\lock\LockAopAspect.class]: Unsatisfied dependency expressed through constructor parameter 0; nested exception is org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'lockService' defined in file [D:\study\practice\assignment\order\target\classes\com\service\order\service\lock\LockService.class]: Unsatisfied dependency expressed through constructor parameter 0; nested exception is org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'redissonClient' defined in class path resource [com/service/order/config/redis/RedisConfig.class]: Bean instantiation via factory method failed; nested exception is org.springframework.beans.BeanInstantiationException: Failed to instantiate [org.redisson.api.RedissonClient]: Factory method 'redissonClient' threw exception; nested exception is org.redisson.client.RedisConnectionException: Unable to init enough connections amount! Only 7 of 24 were initialized. Redis server: localhost/127.0.0.1:6379
+	at org.springframework.beans.factory.support.ConstructorResolver.createArgumentArray(ConstructorResolver.java:800)
+	at org.springframework.beans.factory.support.ConstructorResolver.autowireConstructor(ConstructorResolver.java:229)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.autowireConstructor(AbstractAutowireCapableBeanFactory.java:1372)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBeanInstance(AbstractAutowireCapableBeanFactory.java:1222)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:582)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:542)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:335)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:234)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:333)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:208)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.preInstantiateSingletons(DefaultListableBeanFactory.java:955)
+	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:918)
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:583)
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:147)
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:734)
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:408)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:308)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1306)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1295)
+	at com.service.order.OrderApplication.main(OrderApplication.java:10)
+Caused by: org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'lockService' defined in file [D:\study\practice\assignment\order\target\classes\com\service\order\service\lock\LockService.class]: Unsatisfied dependency expressed through constructor parameter 0; nested exception is org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'redissonClient' defined in class path resource [com/service/order/config/redis/RedisConfig.class]: Bean instantiation via factory method failed; nested exception is org.springframework.beans.BeanInstantiationException: Failed to instantiate [org.redisson.api.RedissonClient]: Factory method 'redissonClient' threw exception; nested exception is org.redisson.client.RedisConnectionException: Unable to init enough connections amount! Only 7 of 24 were initialized. Redis server: localhost/127.0.0.1:6379
+	at org.springframework.beans.factory.support.ConstructorResolver.createArgumentArray(ConstructorResolver.java:800)
+	at org.springframework.beans.factory.support.ConstructorResolver.autowireConstructor(ConstructorResolver.java:229)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.autowireConstructor(AbstractAutowireCapableBeanFactory.java:1372)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBeanInstance(AbstractAutowireCapableBeanFactory.java:1222)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:582)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:542)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:335)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:234)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:333)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:208)
+	at org.springframework.beans.factory.config.DependencyDescriptor.resolveCandidate(DependencyDescriptor.java:276)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.doResolveDependency(DefaultListableBeanFactory.java:1391)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.resolveDependency(DefaultListableBeanFactory.java:1311)
+	at org.springframework.beans.factory.support.ConstructorResolver.resolveAutowiredArgument(ConstructorResolver.java:887)
+	at org.springframework.beans.factory.support.ConstructorResolver.createArgumentArray(ConstructorResolver.java:791)
+	... 19 common frames omitted
+Caused by: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'redissonClient' defined in class path resource [com/service/order/config/redis/RedisConfig.class]: Bean instantiation via factory method failed; nested exception is org.springframework.beans.BeanInstantiationException: Failed to instantiate [org.redisson.api.RedissonClient]: Factory method 'redissonClient' threw exception; nested exception is org.redisson.client.RedisConnectionException: Unable to init enough connections amount! Only 7 of 24 were initialized. Redis server: localhost/127.0.0.1:6379
+	at org.springframework.beans.factory.support.ConstructorResolver.instantiate(ConstructorResolver.java:658)
+	at org.springframework.beans.factory.support.ConstructorResolver.instantiateUsingFactoryMethod(ConstructorResolver.java:486)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.instantiateUsingFactoryMethod(AbstractAutowireCapableBeanFactory.java:1352)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBeanInstance(AbstractAutowireCapableBeanFactory.java:1195)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:582)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:542)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:335)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:234)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:333)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:208)
+	at org.springframework.beans.factory.config.DependencyDescriptor.resolveCandidate(DependencyDescriptor.java:276)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.doResolveDependency(DefaultListableBeanFactory.java:1391)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.resolveDependency(DefaultListableBeanFactory.java:1311)
+	at org.springframework.beans.factory.support.ConstructorResolver.resolveAutowiredArgument(ConstructorResolver.java:887)
+	at org.springframework.beans.factory.support.ConstructorResolver.createArgumentArray(ConstructorResolver.java:791)
+	... 33 common frames omitted
+Caused by: org.springframework.beans.BeanInstantiationException: Failed to instantiate [org.redisson.api.RedissonClient]: Factory method 'redissonClient' threw exception; nested exception is org.redisson.client.RedisConnectionException: Unable to init enough connections amount! Only 7 of 24 were initialized. Redis server: localhost/127.0.0.1:6379
+	at org.springframework.beans.factory.support.SimpleInstantiationStrategy.instantiate(SimpleInstantiationStrategy.java:185)
+	at org.springframework.beans.factory.support.ConstructorResolver.instantiate(ConstructorResolver.java:653)
+	... 47 common frames omitted
+Caused by: org.redisson.client.RedisConnectionException: Unable to init enough connections amount! Only 7 of 24 were initialized. Redis server: localhost/127.0.0.1:6379
+	at org.redisson.connection.pool.ConnectionPool.lambda$createConnection$1(ConnectionPool.java:153)
+	at java.base/java.util.concurrent.CompletableFuture.uniWhenComplete(CompletableFuture.java:859)
+	at java.base/java.util.concurrent.CompletableFuture$UniWhenComplete.tryFire(CompletableFuture.java:837)
+	at java.base/java.util.concurrent.CompletableFuture.postComplete(CompletableFuture.java:506)
+	at java.base/java.util.concurrent.CompletableFuture.completeExceptionally(CompletableFuture.java:2088)
+	at org.redisson.connection.pool.ConnectionPool.promiseFailure(ConnectionPool.java:317)
+	at org.redisson.connection.pool.ConnectionPool.lambda$createConnection$7(ConnectionPool.java:276)
+	at java.base/java.util.concurrent.CompletableFuture.uniWhenComplete(CompletableFuture.java:859)
+	at java.base/java.util.concurrent.CompletableFuture$UniWhenComplete.tryFire(CompletableFuture.java:837)
+	at java.base/java.util.concurrent.CompletableFuture.postComplete(CompletableFuture.java:506)
+	at java.base/java.util.concurrent.CompletableFuture.completeExceptionally(CompletableFuture.java:2088)
+	at org.redisson.client.RedisClient$1$2.run(RedisClient.java:250)
+	at io.netty.util.concurrent.AbstractEventExecutor.runTask$$$capture(AbstractEventExecutor.java:174)
+	at io.netty.util.concurrent.AbstractEventExecutor.runTask(AbstractEventExecutor.java)
+	at io.netty.util.concurrent.AbstractEventExecutor.safeExecute$$$capture(AbstractEventExecutor.java:167)
+	at io.netty.util.concurrent.AbstractEventExecutor.safeExecute(AbstractEventExecutor.java)
+	at io.netty.util.concurrent.SingleThreadEventExecutor.runAllTasks(SingleThreadEventExecutor.java:470)
+	at io.netty.channel.nio.NioEventLoop.run(NioEventLoop.java:569)
+	at io.netty.util.concurrent.SingleThreadEventExecutor$4.run(SingleThreadEventExecutor.java:997)
+	at io.netty.util.internal.ThreadExecutorMap$2.run(ThreadExecutorMap.java:74)
+	at io.netty.util.concurrent.FastThreadLocalRunnable.run(FastThreadLocalRunnable.java:30)
+	at java.base/java.lang.Thread.run(Thread.java:834)
+Caused by: java.util.concurrent.CompletionException: io.netty.channel.ConnectTimeoutException: connection timed out: localhost/127.0.0.1:6379
+	at java.base/java.util.concurrent.CompletableFuture.encodeRelay(CompletableFuture.java:367)
+	at java.base/java.util.concurrent.CompletableFuture.completeRelay(CompletableFuture.java:376)
+	at java.base/java.util.concurrent.CompletableFuture$UniRelay.tryFire(CompletableFuture.java:1019)
+	... 13 common frames omitted
+Caused by: io.netty.channel.ConnectTimeoutException: connection timed out: localhost/127.0.0.1:6379
+	at io.netty.channel.nio.AbstractNioChannel$AbstractNioUnsafe$1.run(AbstractNioChannel.java:261)
+	at io.netty.util.concurrent.PromiseTask.runTask(PromiseTask.java:98)
+	at io.netty.util.concurrent.ScheduledFutureTask.run(ScheduledFutureTask.java:153)
+	... 10 common frames omitted

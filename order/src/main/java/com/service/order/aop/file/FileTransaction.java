@@ -1,4 +1,4 @@
-package com.service.product.aop;
+package com.service.order.aop.file;
 
 import java.lang.annotation.*;
 
@@ -6,5 +6,5 @@ import java.lang.annotation.*;
 @Retention(RetentionPolicy.RUNTIME)
 @Documented
 @Inherited
-public @interface ProductOrderLock {
+public @interface FileTransaction {
 }

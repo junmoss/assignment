@@ -1,6 +1,7 @@
 package com.service.product.controller;
 
-import com.service.product.aop.ProductOrderLock;
+import com.service.product.aop.file.FileTransaction;
+import com.service.product.aop.lock.ProductOrderLock;
 import com.service.product.dto.product.ProductDto;
 import com.service.product.input.OrderProductInput;
 import com.service.product.input.ProductInput;

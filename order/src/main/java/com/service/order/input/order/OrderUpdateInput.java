@@ -1,6 +1,6 @@
 package com.service.order.input.order;
 
-import com.service.order.aop.OrderLockInterface;
+import com.service.order.aop.lock.OrderLockInterface;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;

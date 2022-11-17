@@ -16,6 +16,14 @@ import java.util.List;
 public class FileService {
     private final FileUtil fileUtil;
 
+    public void writeBackUpFile() throws FileServiceException {
+        fileUtil.writeBackUpFile();
+    }
+
+    public void restoreBackUpFile() throws FileServiceException {
+        fileUtil.restoreBackupFile();
+    }
+
     public long saveOrder(OrderInput orderInput) throws FileServiceException {
         return fileUtil.saveOrderData(orderInput);
     }

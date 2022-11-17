@@ -1,4 +1,4 @@
-package com.service.order.aop;
+package com.service.order.aop.lock;
 
 public interface OrderLockInterface {
     Long getId();

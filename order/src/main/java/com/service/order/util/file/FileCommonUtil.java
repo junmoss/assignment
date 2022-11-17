@@ -236,6 +236,14 @@ public class FileCommonUtil {
         }
     }
 
+    protected void writeText(byte[] bytes, String dir, String destFile) throws FileServiceException {
+        try (DataOutputStream dataOutputStream = new DataOutputStream(new FileOutputStream(getDataFilePath() + dir + destFile))) {
+            dataOutputStream.write(bytes);
+        } catch (Exception e) {
+            throw new FileServiceException("파일에 데이터를 저장 중에 실패하였습니다.");
+        }
+    }
+
     protected long getNextOrderId() throws FileServiceException {
         String[] parse = readAllText("index.txt");
 
@@ -243,6 +251,16 @@ public class FileCommonUtil {
             return 1L;
         else
             return GsonUtil.parseStrToObj(parse[parse.length - 1], IndexFile.class).getOrderId() + 1;
+    }
+
+    protected byte[] getFileBytes(String dir, String file) throws FileServiceException {
+        try (DataInputStream dataInputStream = new DataInputStream(new FileInputStream(getDataFilePath() + dir + file))) {
+            byte[] bytes = new byte[dataInputStream.available()];
+            dataInputStream.read(bytes);
+            return bytes;
+        } catch (Exception e) {
+            throw new FileServiceException("파일을 읽지 못햇습니다.");
+        }
     }
 
     protected String getDataFilePath() {

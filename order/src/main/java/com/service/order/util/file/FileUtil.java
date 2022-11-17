@@ -18,6 +18,20 @@ import java.util.List;
 @Component
 @RequiredArgsConstructor
 public class FileUtil extends FileCommonUtil {
+    public void writeBackUpFile() throws FileServiceException {
+        byte[] indexFileBytes = getFileBytes("/dev/", "index.txt");
+        byte[] productFileBytes = getFileBytes("/dev/", "order.txt");
+        writeText(indexFileBytes, "/backup/", "index.txt");
+        writeText(productFileBytes, "/backup/", "order.txt");
+    }
+
+    public void restoreBackupFile() throws FileServiceException {
+        byte[] indexFileBytes = getFileBytes("/backup/", "index.txt");
+        byte[] productFileBytes = getFileBytes("/backup/", "order.txt");
+        writeText(indexFileBytes, "/dev/", "index.txt");
+        writeText(productFileBytes, "/dev/", "order.txt");
+    }
+
     public long saveOrderData(OrderInput orderInput) throws FileServiceException {
         OrderFile orderFile = OrderFile.from(orderInput);
         orderFile.setOrderId(getNextOrderId());

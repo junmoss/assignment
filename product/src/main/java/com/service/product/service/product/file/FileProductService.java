@@ -1,5 +1,6 @@
 package com.service.product.service.product.file;
 
+import com.service.product.aop.file.FileTransaction;
 import com.service.product.dto.product.OrderProductDto;
 import com.service.product.dto.product.ProductDto;
 import com.service.product.entity.file.ProductFile;
@@ -21,6 +22,7 @@ import java.util.stream.Collectors;
 public class FileProductService {
     private final FileService fileService;
 
+    @FileTransaction
     public long saveProduct(ProductInput productInput) {
         try {
             return fileService.saveProduct(productInput);
@@ -29,6 +31,7 @@ public class FileProductService {
         }
     }
 
+    @FileTransaction
     public long deleteProduct(long productId) {
         try {
             return fileService.deleteProduct(productId);
@@ -37,6 +40,7 @@ public class FileProductService {
         }
     }
 
+    @FileTransaction
     public long updateProduct(ProductInput productInput) {
         try {
             return fileService.updateProduct(productInput);
@@ -45,6 +49,7 @@ public class FileProductService {
         }
     }
 
+    @FileTransaction
     public List<Long> orderProduct(List<OrderProductInput> orderProductInputs) throws Exception {
         List<Long> orderProductIds = new ArrayList<>();
 
@@ -65,6 +70,7 @@ public class FileProductService {
         return orderProductIds;
     }
 
+    @FileTransaction
     public List<Long> cancelOrderProduct(List<OrderProductInput> orderProductInputs) throws Exception {
         List<Long> cancelProductIds = new ArrayList<>();
 
@@ -92,6 +98,7 @@ public class FileProductService {
         return fileService.findProductPaging(page, size).stream().map(ProductDto::from).collect(Collectors.toList());
     }
 
+    @FileTransaction
     public List<ProductDto> findProductByJsonStr(List<OrderProductInput> orderProductInputs) throws Exception {
         List<ProductDto> productDtoList = new ArrayList<>();
 

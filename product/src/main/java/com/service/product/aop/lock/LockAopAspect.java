@@ -1,4 +1,4 @@
-package com.service.product.aop;
+package com.service.product.aop.lock;
 
 import com.service.product.service.lock.LockService;
 import lombok.RequiredArgsConstructor;
@@ -15,7 +15,7 @@ import org.springframework.stereotype.Component;
 public class LockAopAspect {
     private final LockService lockService;
 
-    @Around("@annotation(com.service.product.aop.ProductOrderLock)")
+    @Around("@annotation(com.service.product.aop.lock.ProductOrderLock)")
     public Object orderAroundLockMethod(
             ProceedingJoinPoint pjp
     ) throws Throwable {

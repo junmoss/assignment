@@ -1,5 +1,6 @@
 package com.service.order.service.order.file;
 
+import com.service.order.aop.file.FileTransaction;
 import com.service.order.dto.order.OrderDto;
 import com.service.order.dto.product.ProductDto;
 import com.service.order.entity.file.OrderFile;
@@ -26,6 +27,7 @@ public class FileOrderService {
     private final HttpService httpService;
     private final FileService fileService;
 
+    @FileTransaction
     public long createOrder(OrderInput orderInput) throws Exception {
         httpService.sendProductWriteRequest("http://%s:%d/product/order", HttpMethod.PATCH, orderInput.getProductInputs());
         long orderId = 0;
@@ -42,6 +44,7 @@ public class FileOrderService {
         }
     }
 
+    @FileTransaction
     public long cancelOrder(long orderId) throws Exception {
         OrderFile orderFile = fileService.findOrderById(orderId);
         httpService.sendProductWriteRequest("http://%s:%d/product/cancel-order", HttpMethod.PATCH, orderFile.getProductFiles());
@@ -58,6 +61,7 @@ public class FileOrderService {
         return orderId;
     }
 
+    @FileTransaction
     public long updateOrder(OrderUpdateInput orderUpdateInput) throws Exception {
         return fileService.updateOrder(orderUpdateInput);
     }

@@ -1,4 +1,4 @@
-package com.service.order.aop;
+package com.service.order.aop.lock;
 
 import com.service.order.service.lock.LockService;
 import lombok.RequiredArgsConstructor;
@@ -15,7 +15,7 @@ import org.springframework.stereotype.Component;
 public class LockAopAspect {
     private final LockService lockService;
 
-    @Around("@annotation(com.service.order.aop.OrderLock) && args(orderUpdateInput)")
+    @Around("@annotation(com.service.order.aop.lock.OrderLock) && args(orderUpdateInput)")
     public Object orderAroundLockByUpdateInput(
             ProceedingJoinPoint pjp,
             OrderLockInterface orderUpdateInput
@@ -32,7 +32,7 @@ public class LockAopAspect {
         }
     }
 
-    @Around("@annotation(com.service.order.aop.OrderLock) && args(orderId)")
+    @Around("@annotation(com.service.order.aop.lock.OrderLock) && args(orderId)")
     public Object orderAroundLockByOrderId(
             ProceedingJoinPoint pjp,
             long orderId

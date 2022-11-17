@@ -1,15 +1,12 @@
 package com.service.order.controller;
 
-import com.service.order.aop.OrderLock;
+import com.service.order.aop.lock.OrderLock;
 import com.service.order.dto.order.OrderDto;
 import com.service.order.input.order.OrderInput;
 import com.service.order.input.order.OrderUpdateInput;
 import com.service.order.service.order.file.FileOrderService;
-import com.service.order.service.order.rdb.RdbOrderService;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.data.domain.PageRequest;
-import org.springframework.data.domain.Sort;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
