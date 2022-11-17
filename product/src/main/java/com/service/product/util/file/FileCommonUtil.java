@@ -4,6 +4,7 @@ import com.service.product.entity.file.IndexFile;
 import com.service.product.entity.file.ProductFile;
 import com.service.product.error.exception.file.FileServiceException;
 import com.service.product.util.gson.GsonUtil;
+
 import java.io.DataInputStream;
 import java.io.DataOutputStream;
 import java.io.FileInputStream;
@@ -15,8 +16,8 @@ import java.util.List;
 
 public class FileCommonUtil {
     protected void deleteProductData(IndexFile index) throws FileServiceException {
-        if(index == null) {
-            return;
+        if (index == null) {
+            throw new FileServiceException("삭제하려는 상품이 존재하지 않습니다.");
         }
 
         try (DataInputStream dataInputStream = new DataInputStream(new FileInputStream(getDataFilePath() + "/dev/" + "product.txt"))) {
@@ -38,9 +39,7 @@ public class FileCommonUtil {
                     (prevBytes.length > 0 ? new String(prevBytes) : "") + (postBytes.length > 0 ? new String(postBytes) : "")
             );
 
-            if (!stringBuilder.toString().isEmpty()) {
-                writeText(stringBuilder.toString().getBytes(StandardCharsets.UTF_8), "product.txt");
-            }
+            writeText(stringBuilder.toString().getBytes(StandardCharsets.UTF_8), "product.txt");
         } catch (Exception e) {
             throw new FileServiceException("상품 데이터 삭제에 실패하였습니다.");
         }

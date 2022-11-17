@@ -27,14 +27,14 @@ public class RdbOrderService {
     private final HttpService httpService;
 
     public long createOrder(OrderInput orderInput) {
-        List<Product> products = GsonUtil.parseJsonStrToProducts(httpService.sendProductRequest("http://%s:%d/product/order", HttpMethod.PATCH, orderInput.getProductInputs())).stream().map(Product::from).collect(Collectors.toList());
+        List<Product> products = GsonUtil.parseJsonStrToProducts(httpService.sendProductWriteRequest("http://%s:%d/product/order", HttpMethod.PATCH, orderInput.getProductInputs())).stream().map(Product::from).collect(Collectors.toList());
 
         try {
             return queryService.order(orderInput, products);
         } catch (Exception e) {
             if (e instanceof OrderServiceException
                     || e instanceof ProductServiceException) {
-                httpService.sendProductRequest("http://%s:%d/product/cancel-order", HttpMethod.PATCH, orderInput.getProductInputs());
+                httpService.sendProductWriteRequest("http://%s:%d/product/cancel-order", HttpMethod.PATCH, orderInput.getProductInputs());
             }
             throw e;
         }
@@ -46,14 +46,14 @@ public class RdbOrderService {
 
     public long cancelOrder(long orderId) {
         List<ProductInput> productInputs = queryService.findOrderProductInputsById(orderId);
-        httpService.sendProductRequest("http://%s:%d/product/cancel-order", HttpMethod.PATCH, productInputs);
+        httpService.sendProductWriteRequest("http://%s:%d/product/cancel-order", HttpMethod.PATCH, productInputs);
 
         try {
             queryService.cancelOrder(orderId, productInputs.stream().map(product -> product.getId()).collect(Collectors.toList()));
         } catch (Exception e) {
             if (e instanceof OrderServiceException
                     || e instanceof ProductServiceException) {
-                httpService.sendProductRequest("http://%s:%d/product/order", HttpMethod.PATCH, productInputs);
+                httpService.sendProductWriteRequest("http://%s:%d/product/order", HttpMethod.PATCH, productInputs);
             }
             throw e;
         }

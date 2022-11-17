@@ -38,10 +38,7 @@ public class FileCommonUtil {
             StringBuilder stringBuilder = new StringBuilder(
                     (prevBytes.length > 0 ? new String(prevBytes) : "") + (postBytes.length > 0 ? new String(postBytes) : "")
             );
-
-            if (!stringBuilder.toString().isEmpty()) {
-                writeText(stringBuilder.toString().getBytes(StandardCharsets.UTF_8), "order.txt");
-            }
+            writeText(stringBuilder.toString().getBytes(StandardCharsets.UTF_8), "order.txt");
         } catch (Exception e) {
             throw new FileServiceException("주문데이터 삭제에 실패하였습니다.");
         }

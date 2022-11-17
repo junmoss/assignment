@@ -1,0 +1,5 @@
+{"productId":1,"offset":0,"length":237}
+{"productId":2,"offset":237,"length":167}
+{"productId":3,"offset":404,"length":167}
+{"productId":4,"offset":571,"length":185}
+{"productId":5,"offset":756,"length":233}

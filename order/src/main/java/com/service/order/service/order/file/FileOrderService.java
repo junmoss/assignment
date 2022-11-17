@@ -8,12 +8,14 @@ import com.service.order.input.order.OrderInput;
 import com.service.order.input.order.OrderUpdateInput;
 import com.service.order.service.file.FileService;
 import com.service.order.service.http.HttpService;
+import com.service.order.util.gson.GsonUtil;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.HttpMethod;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -25,16 +27,16 @@ public class FileOrderService {
     private final FileService fileService;
 
     public long createOrder(OrderInput orderInput) throws Exception {
-        httpService.sendProductRequest("http://%s:%d/product/order", HttpMethod.PATCH, orderInput.getProductInputs());
+        httpService.sendProductWriteRequest("http://%s:%d/product/order", HttpMethod.PATCH, orderInput.getProductInputs());
         long orderId = 0;
 
         try {
             orderId = fileService.saveOrder(orderInput);
             return orderId;
         } catch (Exception e) {
-            if (e instanceof FileServiceException) {
+            if (e instanceof RuntimeException || e instanceof FileServiceException) {
                 fileService.deleteOrder(orderId);
-                httpService.sendProductRequest("http://%s:%d/product/cancel-order", HttpMethod.PATCH, orderInput.getProductInputs());
+                httpService.sendProductWriteRequest("http://%s:%d/product/cancel-order", HttpMethod.PATCH, orderInput.getProductInputs());
             }
             throw e;
         }
@@ -42,14 +44,14 @@ public class FileOrderService {
 
     public long cancelOrder(long orderId) throws Exception {
         OrderFile orderFile = fileService.findOrderById(orderId);
-        httpService.sendProductRequest("http://%s:%d/product/cancel-order", HttpMethod.PATCH, orderFile.getProductFiles());
+        httpService.sendProductWriteRequest("http://%s:%d/product/cancel-order", HttpMethod.PATCH, orderFile.getProductFiles());
 
         try {
             fileService.deleteOrder(orderId);
         } catch (Exception e) {
-            if (e instanceof FileServiceException) {
+            if (e instanceof RuntimeException || e instanceof FileServiceException) {
                 fileService.saveOrder(orderFile);
-                httpService.sendProductRequest("http://%s:%d/product/order", HttpMethod.PATCH, orderFile.getProductFiles());
+                httpService.sendProductWriteRequest("http://%s:%d/product/order", HttpMethod.PATCH, orderFile.getProductFiles());
             }
             throw e;
         }
@@ -62,21 +64,21 @@ public class FileOrderService {
 
     public OrderDto findOrderDtoById(long orderId) throws Exception {
         OrderFile orderFile = fileService.findOrderById(orderId);
-        List<ProductDto> productDtoList = new ArrayList<>(); // send http request to product server and get product list
-        return OrderDto.from(orderFile, productDtoList);
+        String resultStr = httpService.sendProductWriteRequest("http://%s:%d/product/list", HttpMethod.POST, orderFile.getProductFiles());
+        return OrderDto.from(orderFile, Arrays.asList(GsonUtil.parseStrToObj(resultStr, ProductDto[].class)));
     }
 
     public List<OrderDto> findTotalOrder() throws Exception {
         return fileService.findTotalOrder().stream().map(orderFile -> {
-            // send http request to product server and get product list
-            return OrderDto.from(orderFile, new ArrayList<>());
+            String resultStr = httpService.sendProductWriteRequest("http://%s:%d/product/list", HttpMethod.POST, orderFile.getProductFiles());
+            return OrderDto.from(orderFile, Arrays.asList(GsonUtil.parseStrToObj(resultStr, ProductDto[].class)));
         }).collect(Collectors.toList());
     }
 
     public List<OrderDto> findOrderPaging(int page, int size) throws Exception {
         return fileService.findPagingOrder(page, size).stream().map(orderFile -> {
-            // send http request to product server and get product list
-            return OrderDto.from(orderFile, new ArrayList<>());
+            String resultStr = httpService.sendProductWriteRequest("http://%s:%d/product/list", HttpMethod.POST, orderFile.getProductFiles());
+            return OrderDto.from(orderFile, Arrays.asList(GsonUtil.parseStrToObj(resultStr, ProductDto[].class)));
         }).collect(Collectors.toList());
     }
 }

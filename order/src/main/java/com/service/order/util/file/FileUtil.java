@@ -37,6 +37,7 @@ public class FileUtil extends FileCommonUtil {
     }
 
     public long saveOrderData(OrderFile orderFile) throws FileServiceException {
+        orderFile.setOrderId(getNextOrderId());
         String orderJsonStr = GsonUtil.parseObjToStr(orderFile);
         long orderId = orderFile.getOrderId();
         int offset = writeOrderText(orderJsonStr);

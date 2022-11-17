@@ -8,6 +8,7 @@ import com.service.product.error.exception.query.ProductServiceException;
 import com.service.product.input.OrderProductInput;
 import com.service.product.input.ProductInput;
 import com.service.product.service.file.FileService;
+import com.service.product.util.gson.GsonUtil;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
@@ -89,5 +90,15 @@ public class FileProductService {
 
     public List<ProductDto> findPagingProductDto(int page, int size) throws Exception {
         return fileService.findProductPaging(page, size).stream().map(ProductDto::from).collect(Collectors.toList());
+    }
+
+    public List<ProductDto> findProductByJsonStr(List<OrderProductInput> orderProductInputs) throws Exception {
+        List<ProductDto> productDtoList = new ArrayList<>();
+
+        for (OrderProductInput orderProductInput : orderProductInputs) {
+            ProductFile productFile = fileService.findProductById(orderProductInput.getId());
+            productDtoList.add(ProductDto.from(productFile, orderProductInput));
+        }
+        return productDtoList;
     }
 }

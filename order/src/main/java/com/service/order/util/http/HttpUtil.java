@@ -13,9 +13,14 @@ import org.springframework.web.client.RestTemplate;
 public class HttpUtil {
     private final HttpConfig httpConfig;
 
-    public <T> ResponseEntity<String> sendRequest(T obj, String url, HttpMethod httpMethod) {
+    public <T> ResponseEntity<String> sendWriteRequest(T obj, String url, HttpMethod httpMethod) {
         RestTemplate restTemplate = new RestTemplate(setHttpRequestFactory());
         return restTemplate.exchange(String.format(url, httpConfig.getAddress(), httpConfig.getPort()), httpMethod, new HttpEntity(obj, getHttpHeaders()), String.class);
+    }
+
+    public ResponseEntity<String> sendReadRequest(String url) {
+        RestTemplate restTemplate = new RestTemplate(setHttpRequestFactory());
+        return restTemplate.exchange(String.format(url, httpConfig.getAddress(), httpConfig.getPort()), HttpMethod.GET, new HttpEntity(getHttpHeaders()), String.class);
     }
 
     private HttpComponentsClientHttpRequestFactory setHttpRequestFactory() {

@@ -20,7 +20,7 @@ class HttpUtilTest {
     @Test
     public void sendRequestTest() {
         try {
-            ResponseEntity<?> response = httpUtil.sendRequest(Arrays.asList(new ProductInput(1L, 3), new ProductInput(2L, 3), new ProductInput(3L, 3)), "http://%s:%d/product/order", HttpMethod.POST);
+            ResponseEntity<?> response = httpUtil.sendWriteRequest(Arrays.asList(new ProductInput(1L, 3), new ProductInput(2L, 3), new ProductInput(3L, 3)), "http://%s:%d/product/order", HttpMethod.POST);
             Assertions.assertNotNull(response);
         } catch (Exception e) {
             if (e instanceof RestClientException) {

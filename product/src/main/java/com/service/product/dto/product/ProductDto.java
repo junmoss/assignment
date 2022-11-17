@@ -2,6 +2,7 @@ package com.service.product.dto.product;
 
 import com.service.product.entity.file.ProductFile;
 import com.service.product.entity.rdb.product.Product;
+import com.service.product.input.OrderProductInput;
 import com.service.product.util.Util;
 import lombok.Builder;
 import lombok.Data;
@@ -36,6 +37,18 @@ public class ProductDto {
                 .description(productFile.getDescription())
                 .price(productFile.getPrice())
                 .count(productFile.getCount())
+                .createdTime(productFile.getCreatedTime())
+                .updatedTime(productFile.getUpdatedTime())
+                .build();
+    }
+
+    public static ProductDto from(ProductFile productFile, OrderProductInput orderProductInput) {
+        return ProductDto.builder()
+                .productId(productFile.getProductId())
+                .name(productFile.getName())
+                .description(productFile.getDescription())
+                .price(productFile.getPrice() * orderProductInput.getCount())
+                .count(orderProductInput.getCount())
                 .createdTime(productFile.getCreatedTime())
                 .updatedTime(productFile.getUpdatedTime())
                 .build();

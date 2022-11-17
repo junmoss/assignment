@@ -266,9 +266,7 @@ public class FileUtilJsonTest {
                     (prevBytes.length > 0 ? new String(prevBytes) : "") + (postBytes.length > 0 ? new String(postBytes) : "")
             );
 
-            if (!stringBuilder.toString().isEmpty()) {
-                writeText(stringBuilder.toString().getBytes(StandardCharsets.UTF_8), "order.txt");
-            }
+            writeText(stringBuilder.toString().getBytes(StandardCharsets.UTF_8), "order.txt");
         } catch (Exception e) {
             e.printStackTrace();
         }

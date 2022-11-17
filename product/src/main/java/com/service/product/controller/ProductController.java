@@ -1,16 +1,12 @@
 package com.service.product.controller;
 
 import com.service.product.aop.ProductOrderLock;
-import com.service.product.dto.product.OrderProductDto;
 import com.service.product.dto.product.ProductDto;
 import com.service.product.input.OrderProductInput;
 import com.service.product.input.ProductInput;
 import com.service.product.service.product.file.FileProductService;
-import com.service.product.service.product.rdb.RdbProductService;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.data.domain.PageRequest;
-import org.springframework.data.domain.Sort;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -71,8 +67,8 @@ public class ProductController {
         return ResponseEntity.status(HttpStatus.OK).body(fileProductService.findPagingProductDto(page, size));
     }
 
-    @GetMapping("/list")
-    public ResponseEntity<List<ProductDto>> getPagination(@RequestBody List<OrderProductInput> productInputs) throws Exception {
-        return ResponseEntity.status(HttpStatus.OK).body(fileProductService.findPagingProductDto());
+    @PostMapping("/list")
+    public ResponseEntity<List<ProductDto>> getPagination(@RequestBody List<OrderProductInput> orderProductInputs) throws Exception {
+        return ResponseEntity.status(HttpStatus.OK).body(fileProductService.findProductByJsonStr(orderProductInputs));
     }
 }
